@@ -1,0 +1,714 @@
+:root {
+    --bg-color: #ffffff;
+    --text-color: #000000;
+    --link-color: #ffffff;
+    --section-bg: #f9f9f9;
+    --primary-color: #008080;
+    --accent-color: #ff2800;
+    --header-bg: #1e90ff;
+}
+
+body.dark-mode {
+    --bg-color: #121212;
+    --text-color: #f0f0f0;
+    --link-color: #cccccc;
+    --section-bg: #1e1e1e;
+    --primary-color: #00a0a0;
+    --accent-color: #ff5050;
+    --header-bg: #0d5fa0;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+    transition: background 0.3s, color 0.3s;
+    background-image: url('keliking beach.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+/* Fix for marquee movement - ensure proper rendering */
+marquee {
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    background-color: #33CC00;
+    padding: 12px;
+    margin: 20px 0;
+    font-weight: bold;
+    color: #fff;
+    font-size: 16px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+/* Specific styling for both marquees to ensure they scroll properly */
+.custom-marquee {
+    background: linear-gradient(90deg, #ff6b6b, #4ecdc4);
+    color: white;
+    font-size: 18px;
+    padding: 14px;
+    border-radius: 30px;
+}
+
+.city-marquee {
+    background: linear-gradient(90deg, #667eea, #764ba2);
+    color: white;
+    font-size: 17px;
+    padding: 12px;
+    border-radius: 30px;
+}
+
+/* Ensure marquee content moves - override any potential conflicts */
+marquee > i, marquee > span {
+    display: inline-block;
+}
+
+.container {
+    display: flex;
+}
+
+.table-of-contents {
+    width: 280px;
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    color: var(--link-color);
+    padding: 25px 15px;
+    position: fixed;
+    height: 100vh;
+    overflow-y: auto;
+    left: -290px;
+    transition: left 0.3s ease-in-out;
+    z-index: 1000;
+    top: 0;
+    box-shadow: 2px 0 15px rgba(0,0,0,0.3);
+    border-right: 1px solid rgba(255,255,255,0.2);
+}
+
+.table-of-contents.active {
+    left: 0;
+}
+
+.table-of-contents ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.table-of-contents li {
+    margin: 12px 0;
+    padding: 6px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.table-of-contents a {
+    color: var(--link-color);
+    text-decoration: none;
+    font-weight: 600;
+    display: block;
+    padding: 6px 12px;
+    transition: all 0.2s;
+    border-radius: 6px;
+}
+
+.table-of-contents a:hover {
+    text-decoration: none;
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: translateX(5px);
+}
+
+.content {
+    margin-left: 0;
+    padding: 20px 30px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+section {
+    margin-bottom: 50px;
+    padding-top: 20px;
+    background: var(--section-bg);
+    padding: 25px;
+    border-radius: 16px;
+    transition: background 0.3s, transform 0.2s;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+section:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+
+h2 {
+    color: #2c3e9e;
+    border-bottom: 3px solid #ff6b6b;
+    display: inline-block;
+    padding-bottom: 8px;
+}
+
+.toggle-theme {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: #0000FF;
+    border: none;
+    color: white;
+    padding: 12px 18px;
+    font-size: 20px;
+    border-radius: 50px;
+    cursor: pointer;
+    z-index: 1000;
+    transition: all 0.3s;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+.toggle-theme:hover {
+    background: #00FF00;
+    transform: scale(1.05);
+}
+
+.menu-toggle {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background: #0000FF;
+    border: none;
+    color: white;
+    padding: 12px 18px;
+    font-size: 22px;
+    border-radius: 50px;
+    cursor: pointer;
+    z-index: 1001;
+    transition: all 0.3s;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+.menu-toggle:hover {
+    background: #00FF00;
+    transform: scale(1.05);
+}
+
+.toc-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 998;
+    display: none;
+    backdrop-filter: blur(3px);
+}
+
+.toc-overlay.active {
+    display: block;
+}
+
+/* Dark mode styles */
+body.dark-mode {
+    background-color: #0a0a0a;
+    color: #e0e0e0;
+}
+
+body.dark-mode .digital-clock-container {
+    background-color: rgba(30, 30, 30, 0.9);
+}
+
+body.dark-mode .digital-clock {
+    color: #00ff88;
+}
+
+body.dark-mode .date-display {
+    color: #ccc;
+}
+
+body.dark-mode table {
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.08);
+}
+
+body.dark-mode th {
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    color: #fff;
+}
+
+body.dark-mode td {
+    background-color: #2a2a2a;
+    color: #e0e0e0;
+    border-bottom: 1px solid #444;
+}
+
+body.dark-mode tr:nth-child(even) td {
+    background-color: #222;
+}
+
+body.dark-mode marquee {
+    background: linear-gradient(90deg, #2c5a2c, #3d7a3d);
+    color: #fff;
+}
+
+body.dark-mode .country-list, 
+body.dark-mode .city-list {
+    background: #1e1e1e;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+body.dark-mode .analog-clock {
+    background-color: #2a2a2a;
+    border-color: #ffaa00;
+}
+
+body.dark-mode .clock-number {
+    color: #ffaa00;
+}
+
+header {
+    background: linear-gradient(135deg, var(--header-bg), #0b5e7e);
+    color: white;
+    padding: 18px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 500;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+nav ul li {
+    display: inline-block;
+    margin: 0 8px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 8px 16px;
+    border-radius: 30px;
+    transition: all 0.3s;
+    background: rgba(255,255,255,0.1);
+}
+
+nav ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+}
+
+h1 {
+    color: #00FF00;
+    margin: 25px 0 15px;
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    font-size: 2.2rem;
+}
+
+.country {
+    display: flex;
+    color: #03055B;
+    justify-content: center;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+b {
+    color: #03A9F4;
+}
+
+ol, ul {
+    padding-left: 25px;
+    line-height: 1.6;
+}
+
+li {
+    margin-bottom: 8px;
+}
+
+p {
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+.clock-container {
+    display: flex;
+    justify-content: center;
+    margin: 25px 0;
+}
+
+.analog-clock {
+    width: 240px;
+    height: 240px;
+    border: 12px solid var(--primary-color);
+    border-radius: 50%;
+    position: relative;
+    background-color: #fef9e8;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s;
+}
+
+.clock-center {
+    width: 14px;
+    height: 14px;
+    background-color: var(--primary-color);
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+}
+
+.hour-hand, .minute-hand, .second-hand {
+    position: absolute;
+    transform-origin: bottom center;
+    bottom: 50%;
+    left: 50%;
+    border-radius: 6px;
+    transform: translateX(-50%);
+}
+
+.hour-hand {
+    width: 8px;
+    height: 70px;
+    background-color: #333;
+    margin-left: 0px;
+}
+
+.minute-hand {
+    width: 6px;
+    height: 90px;
+    background-color: #555;
+    margin-left: 0px;
+}
+
+.second-hand {
+    width: 3px;
+    height: 105px;
+    background-color: var(--accent-color);
+    margin-left: 0px;
+}
+
+.clock-numbers {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+.clock-number {
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    text-align: center;
+    line-height: 32px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.digital-clock-container {
+    text-align: center;
+    margin: 20px auto;
+    padding: 18px 25px;
+    background-color: rgba(255, 255, 255, 0.92);
+    border-radius: 60px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    max-width: 550px;
+    backdrop-filter: blur(4px);
+}
+
+.digital-clock {
+    font-size: 2.8rem;
+    font-weight: bold;
+    color: #00aa66;
+    font-family: monospace;
+    letter-spacing: 3px;
+    margin-bottom: 8px;
+}
+
+.date-display {
+    font-size: 1.2rem;
+    color: #555;
+    font-weight: 500;
+}
+
+img {
+    width: 240px;
+    height: auto;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    transition: transform 0.3s;
+}
+
+img:hover {
+    transform: scale(1.02);
+}
+
+.country-flag {
+    border: 2px solid #ddd;
+    border-radius: 12px;
+}
+
+.image-gallery {
+    position: relative;
+    width: 100%;
+    max-width: 680px;
+    height: 400px;
+    margin: 30px auto;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 12px 28px rgba(0,0,0,0.25);
+}
+
+.image-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: none;
+    animation: fadeIn 0.5s ease;
+}
+
+.image-container.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(1.02); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+.image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0;
+}
+
+.image-text {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+    color: white;
+    padding: 18px 12px 12px;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.navigation-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.65);
+    border: none;
+    font-size: 28px;
+    color: white;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    z-index: 20;
+    backdrop-filter: blur(4px);
+}
+
+.navigation-button:hover {
+    background-color: rgba(0, 0, 0, 0.85);
+    transform: translateY(-50%) scale(1.08);
+}
+
+.previous-button {
+    left: 16px;
+}
+
+.next-button {
+    right: 16px;
+}
+
+table {
+    font-size: 17px;
+    width: 90%;
+    margin: 30px auto;
+    border-collapse: collapse;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+th, td {
+    padding: 14px 12px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background: linear-gradient(135deg, #2c5f8a, #1e3a5f);
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+tr:nth-child(even) td {
+    background-color: rgba(0, 0, 0, 0.03);
+}
+
+.country-list, .city-list {
+    padding: 20px 30px;
+    border-radius: 20px;
+    margin: 25px auto;
+    max-width: 500px;
+    background: white;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s;
+}
+
+.country-list ol, .city-list ul {
+    font-size: 18px;
+    line-height: 1.8;
+    padding-left: 30px;
+}
+
+#scroll-down-btn {
+    position: fixed;
+    top: 90px;
+    right: 20px;
+    background-color: #0000FF;
+    color: #fff;
+    border: none;
+    padding: 10px 16px;
+    font-size: 20px;
+    border-radius: 50px;
+    cursor: pointer;
+    z-index: 1000;
+    transition: all 0.3s;
+}
+
+#scroll-down-btn:hover {
+    background-color: #00FF00;
+    transform: scale(1.05);
+}
+
+#back-to-top-btn {
+    position: fixed;
+    bottom: 25px;
+    right: 20px;
+    background-color: #0000FF;
+    color: #fff;
+    border: none;
+    padding: 10px 16px;
+    font-size: 20px;
+    border-radius: 50px;
+    cursor: pointer;
+    display: none;
+    z-index: 1000;
+    transition: all 0.3s;
+}
+
+#back-to-top-btn:hover {
+    background-color: #00FF00;
+    transform: scale(1.05);
+}
+
+#show-table-btn {
+    display: block;
+    margin: 20px auto;
+    padding: 12px 28px;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 50px;
+    background: linear-gradient(135deg, #0000FF, #4a4aff);
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+#show-table-btn:hover {
+    background: linear-gradient(135deg, #00aa00, #33cc33);
+    transform: scale(1.02);
+}
+
+/* Responsive fixes */
+@media (max-width: 768px) {
+    .image-gallery {
+        height: 280px;
+        max-width: 95%;
+    }
+    
+    .digital-clock {
+        font-size: 2rem;
+    }
+    
+    nav ul li {
+        display: inline-block;
+        margin: 5px;
+    }
+    
+    nav ul li a {
+        padding: 6px 12px;
+        font-size: 13px;
+    }
+    
+    h1 {
+        font-size: 1.6rem;
+    }
+    
+    .analog-clock {
+        width: 200px;
+        height: 200px;
+    }
+    
+    .hour-hand {
+        height: 55px;
+    }
+    
+    .minute-hand {
+        height: 70px;
+    }
+    
+    .second-hand {
+        height: 85px;
+    }
+    
+    .table-of-contents {
+        width: 260px;
+    }
+    
+    .content {
+        padding: 15px;
+    }
+}
+
+/* Smooth scroll offset for anchor links */
+html {
+    scroll-padding-top: 80px;
+}
+
+/* Additional marquee insurance - ensures movement */
+marquee {
+    will-change: transform;
+}

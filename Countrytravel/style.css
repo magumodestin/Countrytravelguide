@@ -1,0 +1,521 @@
+:root {
+    --bg-color: #ffffff;
+    --text-color: #000000;
+    --link-color: #ffffff;
+    --section-bg: #f9f9f9;
+    --primary-color: #008080;
+    --accent-color: #ff2800;
+    --header-bg: #1e90ff;
+}
+
+body.dark-mode {
+    --bg-color: #121212;
+    --text-color: #f0f0f0;
+    --link-color: #cccccc;
+    --section-bg: #1e1e1e;
+    --primary-color: #00a0a0;
+    --accent-color: #ff5050;
+    --header-bg: #0d5fa0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+    transition: background 0.3s, color 0.3s;
+    background-image: url('keliking beach.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+}
+
+.container {
+    display: flex;
+}
+
+.table-of-contents {
+    width: 250px;
+    background: blue;
+    color: var(--link-color);
+    padding: 20px;
+    position: fixed;
+    height: 100vh;
+    overflow-y: auto;
+    left: -290px;
+    transition: left 0.3s ease-in-out;
+    z-index: 1000;
+    top: 0;
+}
+
+.table-of-contents.active {
+    left: 0;
+}
+
+.table-of-contents ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.table-of-contents li {
+    margin: 10px 0;
+    padding: 5px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.table-of-contents a {
+    color: var(--link-color);
+    text-decoration: none;
+    font-weight: bold;
+    display: block;
+    padding: 5px;
+    transition: all 0.2s;
+}
+
+.table-of-contents a:hover {
+    text-decoration: underline;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+}
+
+.content {
+    margin-left: 0;
+    padding: 20px;
+}
+
+section {
+    margin-bottom: 80px;
+    padding-top: 60px;
+    background: var(--section-bg);
+    padding: 20px;
+    border-radius: 8px;
+    transition: background 0.3s;
+}
+
+h2 {
+    color: #7d3cf8;
+}
+
+.toggle-theme {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: #0000FF;
+    border: none;
+    color: white;
+    padding: 10px 15px;
+    font-size: 18px;
+    border-radius: 6px;
+    cursor: pointer;
+    z-index: 1000;
+    transition: background 0.3s;
+}
+
+.toggle-theme:hover {
+    background: #00FF00;
+}
+
+.menu-toggle {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background: #0000FF;
+    border: none;
+    color: white;
+    padding: 10px 15px;
+    font-size: 18px;
+    border-radius: 6px;
+    cursor: pointer;
+    z-index: 1001;
+    transition: background 0.3s;
+}
+
+.menu-toggle:hover {
+    background: #00FF00;
+}
+
+/* Add overlay when TOC is active */
+.toc-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    display: none;
+}
+
+.toc-overlay.active {
+    display: block;
+}
+
+/* Dark mode styles */
+.dark-mode {
+    background-color: #000;
+    color: #fff;
+}
+
+.dark-mode table {
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode th {
+    background-color: blue;
+    color: #fff;
+}
+
+.dark-mode td {
+    background-color: #333;
+    color: #fff;
+    border-bottom: 1px solid #555;
+}
+
+.dark-mode tr:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode marquee {
+    background-color: #333;
+    color: #fff;
+}
+
+header {
+    background-color: var(--header-bg);
+    color: white;
+    padding: 15px;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 10px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 4px;
+    transition: background 0.3s;
+}
+
+nav ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+h1 {
+    color:#00FF00;
+    margin: 20px 0;
+    text-align:center;
+}
+
+.country {
+    display: flex;
+    color:#03055B;
+    justify-content: center;
+    margin-bottom: 20px;
+    margin-top:20px;
+}
+
+.country div {
+    font-size: 24px;
+    font-weight: bold;
+    color: #032B44;
+}
+
+b {
+    color: #03A9F4;
+}
+
+ol {
+    list-style: decimal inside;
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+p {
+    font-size: 18px;
+}
+
+.clock-container {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.analog-clock {
+    width: 200px;
+    height: 200px;
+    border: 10px solid var(--primary-color);
+    border-radius: 50%;
+    position: relative;
+    background-color: white;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.clock-center {
+    width: 12px;
+    height: 12px;
+    background-color: var(--primary-color);
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+}
+
+.hour-hand, .minute-hand, .second-hand {
+    position: absolute;
+    transform-origin: bottom center;
+    bottom: 50%;
+    left: 50%;
+    border-radius: 4px;
+}
+
+.hour-hand {
+    width: 6px;
+    height: 60px;
+    background-color: #333;
+    margin-left: -3px;
+}
+
+.minute-hand {
+    width: 4px;
+    height: 80px;
+    background-color: #666;
+    margin-left: -2px;
+}
+
+.second-hand {
+    width: 2px;
+    height: 90px;
+    background-color: var(--accent-color);
+    margin-left: -1px;
+}
+
+.clock-numbers {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    font-weight: bold;
+    color: #333;
+}
+
+.clock-number {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    transform: translate(-50%, -50%);
+}
+
+.digital-clock-container {
+    text-align: center;
+    margin: 20px 0;
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.digital-clock {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #00FF00;
+    margin-bottom: 10px;
+}
+
+.date-display {
+    font-size: 1.2rem;
+    color: #333;
+}
+
+img {
+    width:240px;
+    height:250px;
+    background-size:100%;
+    justify-content:left;
+}
+
+.image-gallery {
+    position: relative;
+    width: 640px;
+    height: 370px;
+    overflow: hidden;
+}
+
+.image-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: none;
+}
+
+.image-container.active {
+    display: block;
+}
+
+.image-container img {
+    width: 100%;
+    height: 100%;
+}
+
+.image-text {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 10px;
+    font-size: 18px;
+    text-align: center;
+}
+
+.navigation-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.7);
+    border: none;
+    font-size: 24px;
+    color: var(--primary-color);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s;
+}
+
+.navigation-button:hover {
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+.previous-button {
+    left: 10px;
+}
+
+.next-button {
+    right: 10px;
+}
+
+table {
+    font-size: 18px;
+    width: 80%;
+    margin: 30px auto;
+    border-collapse: collapse;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+th, td {
+    padding: 12px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+    background-color: white;
+}
+
+th {
+    background-color: blue;
+}
+
+tr:nth-child(even) {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+marquee {
+    background-color: white;
+    padding: 10px;
+    margin: 20px 0;
+    font-weight: bold;
+    color: blue;
+}
+
+.country-list, .city-list {
+    padding: 20px;
+    border-radius: 8px;
+    margin: 20px auto;
+    max-width: 90%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.country-list ol, .city-list ul {
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+#scroll-down-btn {
+    position: fixed;
+    top: 80px;
+    right: 20px;
+    background-color: #0000FF;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    font-size: 18px;
+    border-radius: 6px;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+#scroll-down-btn:hover {
+    background-color: #00FF00;
+}
+
+#back-to-top-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #0000FF;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    font-size: 18px;
+    border-radius: 6px;
+    cursor: pointer;
+    display: none;
+    z-index: 1000;
+}
+
+#back-to-top-btn:hover {
+    background-color: #00FF00;
+}
+
+#show-table-btn {
+    display: block;
+    margin: 0 auto;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    background-color: #0000FF;
+    color: #fff;
+    cursor: pointer;
+}
+
+#show-table-btn:hover {
+    background-color: #00FF00;
+}

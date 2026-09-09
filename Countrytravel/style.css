@@ -80,6 +80,22 @@ body {
     border-radius: 4px;
 }
 
+.toc-section-title {
+    color: white;
+    text-align: center;
+    margin: 15px 0 10px;
+}
+
+.table-of-contents .toc-section-title:first-child {
+    margin-top: 0;
+}
+
+.toc-divider {
+    border: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    margin: 15px 0;
+}
+
 .content {
     margin-left: 0;
     padding: 20px;
@@ -358,8 +374,10 @@ img {
 
 .image-gallery {
     position: relative;
-    width: 640px;
-    height: 370px;
+    width: 100%;
+    max-width: 640px;
+    aspect-ratio: 640 / 370;
+    margin: 0 auto;
     overflow: hidden;
 }
 
@@ -377,6 +395,7 @@ img {
 .image-container img {
     width: 100%;
     height: 100%;
+    object-fit: cover;
 }
 
 .image-text {
@@ -518,4 +537,20 @@ marquee {
 
 #show-table-btn:hover {
     background-color: #00FF00;
+}
+@media (max-width: 900px) {
+    header {
+        display: none;
+    }
+
+    .content {
+        padding-top: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .table-of-contents {
+        width: 82vw;
+        left: -85vw;
+    }
 }

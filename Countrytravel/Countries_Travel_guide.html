@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>World Travel Guide | Explore Destinations</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="https://www.lonelyplanet.com/" target="_blank" rel="noopener noreferrer">Destinations</a></li>
+                <li><a href="https://visaindex.com" target="_blank" rel="noopener noreferrer">Travel Visa Info</a></li>
+                <li><a href="mailto:travel@example.com?subject=Hello&body=I'd like to know more about you.">About Me</a></li>
+                <li><a href="tel:0838347844">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <h1>Current Time 🌐⏲</h1>
+    <div class="clock-container">
+        <div class="analog-clock">
+            <div class="clock-center"></div>
+            <div class="hour-hand"></div>
+            <div class="minute-hand"></div>
+            <div class="second-hand"></div>
+            <div class="clock-numbers">
+                <div class="clock-number" style="top: 0%; left: 50%; transform: translateX(-50%);">12</div>
+                <div class="clock-number" style="top: 15%; left: 75%; transform: translate(-50%, -50%);">1</div>
+                <div class="clock-number" style="top: 30%; left: 90%; transform: translate(-50%, -50%);">2</div>
+                <div class="clock-number" style="top: 50%; left: 100%; transform: translate(-100%, -50%);">3</div>
+                <div class="clock-number" style="top: 70%; left: 90%; transform: translate(-50%, -50%);">4</div>
+                <div class="clock-number" style="top: 85%; left: 75%; transform: translate(-50%, -50%);">5</div>
+                <div class="clock-number" style="top: 90%; left: 50%;">6</div>
+                <div class="clock-number" style="top: 85%; left: 25%; transform: translate(-50%, -50%);">7</div>
+                <div class="clock-number" style="top: 70%; left: 10%; transform: translate(-50%, -50%);">8</div>
+                <div class="clock-number" style="top: 50%; left: 0%; transform: translate(0%, -50%);">9</div>
+                <div class="clock-number" style="top: 30%; left: 10%; transform: translate(-50%, -50%);">10</div>
+                <div class="clock-number" style="top: 15%; left: 25%; transform: translate(-50%, -51%);">11</div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="content-section">
+        <div class="digital-clock-container">
+            <div class="digital-clock" id="digitalClock"></div>
+            <div class="date-display" id="dateDisplay"></div>
+        </div>
+
+        <!-- Fixed marquee: direction right with proper styling -->
+        <marquee direction="right" behavior="scroll" scrollamount="5" class="custom-marquee">
+            <i>🌍 Top countries to travel with tourist attractions ✈️ | Discover Australia, Canada, Brazil, UK, Germany, USA, Argentina, France, Japan & more!</i>
+        </marquee>
+
+        <div class="image-gallery">
+            <div class="image-container active">
+                <div class="image-text">Melbourne city</div>
+                <img src="imgs/Melbourne city.jpg" alt="Melbourne city" onerror="this.src='https://picsum.photos/id/104/640/360?grayscale'; this.onerror=null;">
+            </div>
+            <div class="image-container">
+                <div class="image-text">CBD in Melbourne</div>
+                <img src="imgs/CBD in Melbourne.jpg" alt="CBD Melbourne" onerror="this.src='https://picsum.photos/id/20/640/360';">
+            </div>
+            <div class="image-container">
+                <div class="image-text">Canberra city</div>
+                <img src="imgs/Canberra.jpg" alt="Canberra" onerror="this.src='https://picsum.photos/id/15/640/360';">
+            </div>
+            <div class="image-container">
+                <div class="image-text">Sydney Harbour bridge</div>
+                <img src="imgs/Sydney.jpg" alt="Sydney Harbour" onerror="this.src='https://picsum.photos/id/96/640/360';">
+            </div>
+            <div class="image-container">
+                <div class="image-text">Perth city</div>
+                <img src="imgs/perth city.jpg" alt="Perth" onerror="this.src='https://picsum.photos/id/30/640/360';">
+            </div>
+            <div class="image-container">
+                <div class="image-text">Brisbane CBD from Southbank</div>
+                <img src="imgs/Brisbane CBD  from Southbank.jpg" alt="Brisbane" onerror="this.src='https://picsum.photos/id/91/640/360';">
+            </div>
+            <div class="image-container">
+                <div class="image-text">Wheel of Brisbane Southbank</div>
+                <img src="imgs/Wheel of Brisbane Southbank.jpg" alt="Wheel Brisbane" onerror="this.src='https://picsum.photos/id/44/640/360';">
+            </div>
+            <div class="image-container">
+                <div class="image-text">Toronto city</div>
+                <img src="imgs/toronto.jpg" alt="Toronto" onerror="this.src='https://picsum.photos/id/42/640/360';">
+            </div>
+            <div class="image-container">
+                <div class="image-text">Toronto Panorama</div>
+                <img src="imgs/Toronto Panorama.JPG" alt="Toronto Panorama" onerror="this.src='https://picsum.photos/id/58/640/360';">
+            </div>
+            <div class="image-container">
+                <div class="image-text">São Paulo city</div>
+                <img src="imgs/São Paulo, Brazil.jpg" alt="São Paulo" onerror="this.src='https://picsum.photos/id/67/640/360';">
+            </div>
+            <div class="image-container">
+                <div class="image-text">Sunset Beach</div>
+                <img src="imgs/beach.jpg" alt="Beach" onerror="this.src='https://picsum.photos/id/26/640/360';">
+            </div>
+            <div class="image-container">
+                <div class="image-text">Ponte Estaiada</div>
+                <img src="imgs/Ponte_Estaiada_e_CENU.jpg" alt="Ponte Estaiada" onerror="this.src='https://picsum.photos/id/171/640/360';">
+            </div>
+            <div class="image-container">
+                <div class="image-text">London Tower Bridge</div>
+                <img src="imgs/London.jpg" alt="London Bridge" onerror="this.src='https://picsum.photos/id/1/640/360';">
+            </div>
+            <div class="image-container">
+                <div class="image-text">Diamond Beach</div>
+                <img src="imgs/diamond beach.jpg" alt="Diamond Beach" onerror="this.src='https://picsum.photos/id/127/640/360';">
+            </div>
+            <div class="image-container">
+                <div class="image-text">Kelingking Beach</div>
+                <img src="imgs/Kelingking Beach.jpg" alt="Kelingking" onerror="this.src='https://picsum.photos/id/29/640/360';">
+            </div>
+            <div class="image-container">
+                <div class="image-text">Yekaterinburg</div>
+                <img src="imgs/yakaterinburg.jpg" alt="Yekaterinburg" onerror="this.src='https://picsum.photos/id/2/640/360';">
+            </div>
+            <div class="image-container">
+                <div class="image-text">Berlin CBD</div>
+                <img src="imgs/Berlin CBD.jpg" alt="Berlin" onerror="this.src='https://picsum.photos/id/7/640/360';">
+            </div>
+            <div class="image-container">
+                <div class="image-text">Brasilia</div>
+                <img src="imgs/Brasilia.jpg" alt="Brasilia" onerror="this.src='https://picsum.photos/id/116/640/360';">
+            </div>
+            <div class="image-container">
+                <div class="image-text">New York City</div>
+                <img src="imgs/New York City.jpeg" alt="NYC" onerror="this.src='https://picsum.photos/id/113/640/360';">
+            </div>
+            <div class="image-container">
+                <div class="image-text">San Francisco</div>
+                <img src="imgs/San Francisco.jpg" alt="SF" onerror="this.src='https://picsum.photos/id/125/640/360';">
+            </div>
+            <div class="image-container">
+                <div class="image-text">Santiago City</div>
+                <img src="imgs/Santiago.jpg" alt="Santiago" onerror="this.src='https://picsum.photos/id/31/640/360';">
+            </div>
+            <div class="image-container">
+                <div class="image-text">New York Skyline</div>
+                <img src="imgs/NYC.jpg" alt="NYC Skyline" onerror="this.src='https://picsum.photos/id/153/640/360';">
+            </div>
+            <button class="navigation-button previous-button">&#8592;</button>
+            <button class="navigation-button next-button">&#8594;</button>
+        </div>
+
+        <h1 style="color:red; text-align:center;">Country Travel Information</h1>
+        <hr style="border-top: 4px solid red; width: 80%; margin: 20px auto;">
+        
+        <button id="show-table-btn">Show Table</button>
+        <div id="table-container" style="display: none;">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Country</th>
+                        <th>Capital City</th>
+                        <th>Continent</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr>
+					<td>Australia</td>
+					<td>Canberra</td>
+					<td>Oceania</td>
+				</tr>
+                <tr>
+					<td>Canada</td>
+					<td>Ottawa</td>
+					<td>North America</td>
+				</tr>
+                    <tr><td>Brazil</td><td>Brasilia</td><td>South America</td></tr>
+                    <tr><td>UK</td><td>London</td><td>Europe</td></tr>
+                    <tr><td>Germany</td><td>Berlin</td><td>Europe</td></tr>
+                    <tr><td>United States of America (USA)</td><td>Washington D.C.</td><td>North America</td></tr>
+                    <tr><td>Argentina</td><td>Buenos Aires</td><td>South America</td></tr>
+                    <tr><td>France</td><td>Paris</td><td>Europe</td></tr>
+                    <tr><td>Japan</td><td>Tokyo</td><td>Asia</td></tr>
+                    <tr><td>Italy</td><td>Rome</td><td>Europe</td></tr>
+                    <tr><td>Spain</td><td>Madrid</td><td>Europe</td></tr>
+                    <tr><td>Mexico</td><td>Mexico City</td><td>North America</td></tr>
+                    <tr><td>South Africa</td><td>Pretoria</td><td>Africa</td></tr>
+                    <tr><td>Thailand</td><td>Bangkok</td><td>Asia</td></tr>
+                    <tr><td>Egypt</td><td>Cairo</td><td>Africa</td></tr>
+                    <tr><td>Greece</td><td>Athens</td><td>Europe</td></tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="country-list">
+            <marquee bgcolor="33CC00" direction="left" behavior="scroll" scrollamount="4">🌟 Featured Countries 🌟 Australia | Canada | Brazil | UK | Germany | USA | Argentina | France | Japan | Italy | Spain | Mexico | South Africa | Thailand | Egypt | Greece</marquee>
+            <ol>
+                <li>Australia</li>
+                <li>Canada</li>
+                <li>Brazil</li>
+                <li>UK</li>
+                <li>Germany</li>
+                <li>United States of America (USA)</li>
+                <li>Argentina</li>
+            </ol>
+        </div>
+
+        <marquee bgcolor="#33CC00" direction="right" behavior="scroll" scrollamount="5" class="city-marquee">
+            🏙️ Featured Cities: Melbourne | Toronto | São Paulo | London | Berlin | New York City | Buenos Aires | Paris | Tokyo | Rome | Madrid | Mexico City | Cape Town | Bangkok | Cairo | Athens 🏙️
+        </marquee>
+        <div class="city-list">
+            <ul>
+                <li>Melbourne</li>
+                <li>Toronto</li>
+                <li>São Paulo</li>
+                <li>London</li>
+                <li>Berlin</li>
+                <li>New York City</li>
+                <li>Buenos Aires</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Dark/Light Toggle Button -->
+    <button class="toggle-theme" id="themeToggle">🌙</button>
+    <button id="scroll-down-btn" title="Scroll Down">🔽</button>
+    <button id="back-to-top-btn" title="Back to Top">🔼</button>
+
+    <!-- Table of Contents Toggle Button -->
+    <button id="show-toc-btn" class="menu-toggle">☰</button>
+
+    <!-- Overlay to close TOC -->
+    <div class="toc-overlay" id="tocOverlay"></div>
+
+    <div class="container">
+        <nav class="table-of-contents" id="tableOfContents">
+            <h3 class="toc-section-title">Navigation</h3>
+            <ul class="toc-main-nav">
+                <li><a href="#home">Home</a></li>
+                <li><a href="https://www.lonelyplanet.com/" target="_blank" rel="noopener noreferrer">Destinations</a></li>
+                <li><a href="https://visaindex.com" target="_blank" rel="noopener noreferrer">Travel Visa Info</a></li>
+                <li><a href="mailto:travel@example.com?subject=Hello&body=I'd like to know more about you.">About Me</a></li>
+                <li><a href="tel:0838347844">Contact</a></li>
+            </ul>
+
+            <hr class="toc-divider">
+
+            <h3 class="toc-section-title">Countries</h3>
+            <ul>
+                <li><a href="#Australia">Australia</a></li>
+                <li><a href="#Canada">Canada</a></li>
+                <li><a href="#Brazil">Brazil</a></li>
+                <li><a href="#UnitedKingdom">United Kingdom</a></li>
+                <li><a href="#Germany">Germany</a></li>
+                <li><a href="#UnitedStates">United States Of America</a></li>
+                <li><a href="#Argentina">Argentina</a></li>
+                <li><a href="#France">France</a></li>
+                <li><a href="#Japan">Japan</a></li>
+                <li><a href="#Italy">Italy</a></li>
+                <li><a href="#Spain">Spain</a></li>
+                <li><a href="#Mexico">Mexico</a></li>
+                <li><a href="#SouthAfrica">South Africa</a></li>
+                <li><a href="#Thailand">Thailand</a></li>
+                <li><a href="#Egypt">Egypt</a></li>
+                <li><a href="#Greece">Greece</a></li>
+                <li><a href="#email_us">Email Us</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="content">
+        <section id="Australia">
+            <h2 style="color:blue; text-align:center;">Australia</h2>
+            <img src="imgs/australia.png" style="width:20%; height:auto; max-width:180px;" alt="Australia Flag" class="country-flag" onerror="this.src='https://flagcdn.com/w320/au.png'">
+            <p><b style="color:blue">Canberra</b> is the capital city of Australia, located in the Australian Capital Territory (ACT). It's a planned city, designed by American architect Walter Burley Griffin in 1912.</p>
+            <p>Must-see tourist attractions:</p>
+            <ol>
+                <li><b>Parliament House:</b> The seat of Australia's federal government, offering guided tours.</li>
+                <li><b>Australian War Memorial:</b> A museum showcasing Australia's military history.</li>
+                <li><b>National Museum of Australia:</b> A museum exploring Australia's history, culture & society.</li>
+                <li><b>Lake Burley Griffin:</b> A picturesque lake in the heart of the city.</li>
+                <li><b>Black Mountain Tower:</b> Panoramic views of the city.</li>
+            </ol>
+            <p><b style="color:blue">Melbourne</b> & <b style="color:blue">Sydney</b> are iconic with Federation Square, Opera House, and stunning beaches.</p>
+        </section>
+
+        <section id="Canada">
+            <h2 style="color:blue; text-align:center;">Canada</h2>
+            <img src="imgs/Canada.png" alt="Canada Flag" style="width:20%; max-width:180px;" onerror="this.src='https://flagcdn.com/w320/ca.png'">
+            <p>Canada is known for vast landscapes, diverse culture, and friendly people.</p>
+            <ol>
+                <li><b>Niagara Falls:</b> One of the most famous waterfalls in the world.</li>
+                <li><b>Banff National Park:</b> Beautiful park in the Canadian Rockies.</li>
+                <li><b>CN Tower:</b> Iconic tower in Toronto with amazing views.</li>
+            </ol>
+        </section>
+
+        <section id="Brazil">
+            <h2 style="color:blue; text-align:center;">Brazil</h2>
+            <img src="imgs/Brazil.png" alt="Brazil Flag" style="width:20%; max-width:180px;" onerror="this.src='https://flagcdn.com/w320/br.png'">
+            <p>Largest country in South America, vibrant culture and Amazon rainforest.</p>
+            <ol>
+                <li><b>Christ the Redeemer:</b> Iconic statue in Rio de Janeiro.</li>
+                <li><b>Iguazu Falls:</b> One of the largest waterfall systems.</li>
+                <li><b>Amazon Rainforest:</b> World's largest tropical rainforest.</li>
+            </ol>
+        </section>
+
+        <section id="Germany">
+            <h2 style="color:blue; text-align:center;">Germany</h2>
+            <img src="imgs/Germany.png" alt="Germany Flag" style="width:20%; max-width:180px;" onerror="this.src='https://flagcdn.com/w320/de.png'">
+            <p><b style="color:blue">Berlin</b> is Germany's capital, full of history and modern energy.</p>
+            <ul><li>Berlin Wall Memorial</li><li>Brandenburg Gate</li><li>Reichstag Building</li><li>Vibrant nightlife</li></ul>
+        </section>
+
+        <section id="UnitedStates">
+            <h2 style="color:blue; text-align:center;">United States Of America</h2>
+            <img src="imgs/USA.png" alt="USA Flag" style="width:20%; max-width:180px;" onerror="this.src='https://flagcdn.com/w320/us.png'">
+            <p><b>New York City</b>: Statue of Liberty, Central Park, Metropolitan Museum.</p>
+            <p><b>Los Angeles</b>: Hollywood, Universal Studios, Santa Monica Pier.</p>
+            <p><b>Las Vegas</b>: The Strip, Bellagio Fountains, Red Rock Canyon.</p>
+        </section>
+
+        <section id="Argentina">
+            <h2 style="color:blue; text-align:center;">Argentina</h2>
+            <img src="imgs/Argentina.jpg" style="width:20%; max-width:180px;" alt="Argentina Flag" onerror="this.src='https://flagcdn.com/w320/ar.png'">
+            <p><b>Buenos Aires</b> – tango, European architecture, La Boca, Recoleta Cemetery.</p>
+            <p>Patagonia: Perito Moreno Glacier, Fitz Roy. Iguazú Falls, Mendoza wine region.</p>
+        </section>
+
+        <section id="France">
+            <h2 style="color:blue; text-align:center;">France</h2>
+            <img src="imgs/France.jpg" style="width:20%; max-width:180px;" alt="France Flag" onerror="this.src='https://flagcdn.com/w320/fr.png'">
+            <p><b>Paris</b> – Eiffel Tower, Louvre, Notre-Dame, Champs-Élysées, Montmartre. Also visit Versailles, French Riviera.</p>
+        </section>
+
+        <section id="Japan">
+            <h2 style="color:blue; text-align:center;">Japan</h2>
+            <img src="imgs/Japan.jpg" style="width:20%; max-width:180px;" alt="Japan Flag" onerror="this.src='https://flagcdn.com/w320/jp.png'">
+            <p><b>Tokyo</b> – Skytree, Senso-ji, Shibuya Crossing, Meiji Shrine, Tsukiji Market. Cherry blossoms and ryokan experiences.</p>
+        </section>
+
+        <section id="Italy">
+            <h2 style="color:blue; text-align:center;">Italy</h2>
+            <img src="imgs/Italy.png" style="width:20%; max-width:180px;" alt="Italy Flag" onerror="this.src='https://flagcdn.com/w320/it.png'">
+            <p><b>Rome</b> – Colosseum, Vatican, Trevi Fountain, Pantheon. Also Florence, Venice, Amalfi Coast.</p>
+        </section>
+
+        <section id="Spain">
+            <h2 style="color:blue; text-align:center;">Spain</h2>
+            <img src="imgs/Spain.png" style="width:20%; max-width:180px;" alt="Spain Flag" onerror="this.src='https://flagcdn.com/w320/es.png'">
+            <p><b>Madrid</b> – Prado Museum, Royal Palace. <b>Barcelona</b> – Sagrada Familia, Park Güell, La Rambla. Tapas & Flamenco.</p>
+        </section>
+
+        <section id="Mexico">
+            <h2 style="color:blue; text-align:center;">Mexico</h2>
+            <img src="imgs/mexico.png" style="width:20%; max-width:180px;" alt="Mexico Flag" onerror="this.src='https://flagcdn.com/w320/mx.png'">
+            <p>Mexico City: Teotihuacan pyramids, Zócalo, Frida Kahlo Museum, Xochimilco. Cancún beaches, Mayan ruins.</p>
+        </section>
+
+        <section id="SouthAfrica">
+            <h2 style="color:blue; text-align:center;">South Africa</h2>
+            <img src="imgs/South Africa.png" style="width:20%; max-width:180px;" alt="SA Flag" onerror="this.src='https://flagcdn.com/w320/za.png'">
+            <p>Cape Town: Table Mountain, Robben Island, Cape of Good Hope. Safari in Kruger, Garden Route, Stellenbosch wine.</p>
+        </section>
+
+        <section id="Thailand">
+            <h2 style="color:blue; text-align:center;">Thailand</h2>
+            <img src="imgs/Thailand.png" style="width:20%; max-width:180px;" alt="Thailand Flag" onerror="this.src='https://flagcdn.com/w320/th.png'">
+            <p>Bangkok: Grand Palace, Wat Arun, floating markets, Chatuchak Market. Islands like Phuket, Koh Samui, Chiang Mai temples.</p>
+        </section>
+
+        <section id="Egypt">
+            <h2 style="color:blue; text-align:center;">Egypt</h2>
+            <img src="imgs/Egypt.png" style="width:20%; max-width:180px;" alt="Egypt Flag" onerror="this.src='https://flagcdn.com/w320/eg.png'">
+            <p>Pyramids of Giza, Egyptian Museum, Nile cruises, Valley of the Kings, Red Sea diving.</p>
+        </section>
+
+        <section id="Greece">
+            <h2 style="color:blue; text-align:center;">Greece</h2>
+            <img src="imgs/Greece.png" alt="Greece Flag" style="width:20%; max-width:180px;" onerror="this.src='https://flagcdn.com/w320/gr.png'">
+            <p>Athens Acropolis, Parthenon, Plaka district. Island hopping: Santorini, Mykonos, Crete. Mediterranean cuisine.</p>
+        </section>
+        
+        <section id="email_us">
+            <p>📧 Email us for more travel guide at <a href="mailto:travel@example.com">travel@example.com</a></p>
+            <h3 style="color:orange">or</h3>
+            <p>📞 Contact: <span style="color:red">097 854 8345</span></p>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

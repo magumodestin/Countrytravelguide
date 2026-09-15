@@ -32,82 +32,93 @@ function renderContinent(key) {
     const countries = countriesData[key];
     const label = continentLabels[key];
 
-    // Page heading badge
     const badge = document.getElementById('currentContinentLabel');
     if (badge) badge.textContent = label;
 
-    // Table
     const tbody = document.getElementById('countryTableBody');
-    tbody.innerHTML = '';
-    countries.forEach(c => {
-        const tr = document.createElement('tr');
-        tr.innerHTML = `<td>${c.name}</td><td>${c.capital}</td><td>${label}</td>`;
-        tbody.appendChild(tr);
-    });
+    if (tbody) {
+        tbody.innerHTML = '';
+        countries.forEach(c => {
+            const tr = document.createElement('tr');
+            tr.dataset.country = c.name;
+            tr.innerHTML = `<td>${c.name}</td><td>${c.capital}</td><td>${label}</td>`;
+            tbody.appendChild(tr);
+        });
+    }
 
-    // Country list (ordered list)
     const countryOl = document.getElementById('countryOl');
-    countryOl.innerHTML = '';
-    countries.forEach(c => {
-        const li = document.createElement('li');
-        li.textContent = c.name;
-        countryOl.appendChild(li);
-    });
+    if (countryOl) {
+        countryOl.innerHTML = '';
+        countries.forEach(c => {
+            const li = document.createElement('li');
+            li.dataset.country = c.name;
+            li.textContent = c.name;
+            countryOl.appendChild(li);
+        });
+    }
 
-    // Marquee texts
     const names = countries.map(c => c.name);
-    document.getElementById('topMarquee').textContent =
+    const topMarquee = document.getElementById('topMarquee');
+    if (topMarquee) topMarquee.textContent =
         `🌍 Top ${label} destinations to travel ✈️ | Discover ${names.join(', ')} & more!`;
-    document.getElementById('countryMarquee').textContent =
+    const countryMarquee = document.getElementById('countryMarquee');
+    if (countryMarquee) countryMarquee.textContent =
         `🌟 Featured ${label} Countries 🌟 ${names.join(' | ')}`;
-    document.getElementById('cityMarquee').textContent =
+    const cityMarquee = document.getElementById('cityMarquee');
+    if (cityMarquee) cityMarquee.textContent =
         `🏙️ Featured ${label} Capitals: ${countries.map(c => c.capital).join(' | ')} 🏙️`;
 
-    // City list (capitals)
     const cityUl = document.getElementById('cityUl');
-    cityUl.innerHTML = '';
-    countries.forEach(c => {
-        const li = document.createElement('li');
-        li.textContent = c.capital;
-        cityUl.appendChild(li);
-    });
+    if (cityUl) {
+        cityUl.innerHTML = '';
+        countries.forEach(c => {
+            const li = document.createElement('li');
+            li.dataset.country = c.name;
+            li.textContent = c.capital;
+            cityUl.appendChild(li);
+        });
+    }
 
-    // Table of contents country links
     const tocList = document.getElementById('tocCountryList');
-    tocList.innerHTML = '';
-    countries.forEach(c => {
-        const id = slugify(c.name);
-        const li = document.createElement('li');
-        li.innerHTML = `<a href="#${id}">${c.name}</a>`;
-        tocList.appendChild(li);
-    });
+    if (tocList) {
+        tocList.innerHTML = '';
+        countries.forEach(c => {
+            const id = slugify(c.name);
+            const li = document.createElement('li');
+            li.dataset.country = c.name;
+            li.innerHTML = `<a href="#${id}">${c.name}</a>`;
+            tocList.appendChild(li);
+        });
+    }
 
-    // Country detail sections
     const content = document.getElementById('countrySections');
-    content.innerHTML = '';
-    countries.forEach(c => {
-        const id = slugify(c.name);
-        const section = document.createElement('section');
-        section.id = id;
-        const attr1 = c.attractions[0].split(' – ')[0];
-        const attr2 = (c.attractions[1] || c.attractions[0]).split(' – ')[0];
-        const paragraph = [
-            `${c.name} is a destination in ${label}, with ${c.capital} serving as its capital city.`,
-            `${c.blurb}`,
-            `The country is best known for its ${c.vibe}, which give it a distinct travel appeal.`,
-            `Among its top highlights are ${attr1} and ${attr2}, both popular with visitors exploring the region.`,
-            `The best time to visit is generally ${c.bestTime}.`,
-            `Whether you're drawn to nature, history, or local culture, ${c.name} offers a memorable experience for every kind of traveler.`
-        ].join(' ');
-        section.innerHTML = `
-            <h2 style="color:blue; text-align:center;">${c.name}</h2>
-            <img src="https://flagcdn.com/w320/${c.code}.png" alt="${c.name} Flag" class="flag-img">
-            <p>${paragraph}</p>
-            <p>Top places to visit:</p>
-            <ol>${c.attractions.map(a => `<li>${a}</li>`).join('')}</ol>
-        `;
-        content.appendChild(section);
-    });
+    if (content) {
+        content.innerHTML = '';
+        countries.forEach(c => {
+            const id = slugify(c.name);
+            const section = document.createElement('section');
+            section.id = id;
+            section.dataset.country = c.name;
+            const attr1 = c.attractions[0].split(' – ')[0];
+            const attr2 = (c.attractions[1] || c.attractions[0]).split(' – ')[0];
+            const paragraph = [
+                `${c.name} is a destination in ${label}, with ${c.capital} serving as its capital city.`,
+                `${c.blurb}`,
+                `The country is best known for its ${c.vibe}, which give it a distinct travel appeal.`,
+                `Among its top highlights are ${attr1} and ${attr2}, both popular with visitors exploring the region.`,
+                `The best time to visit is generally ${c.bestTime}.`,
+                `Whether you're drawn to nature, history, or local culture, ${c.name} offers a memorable experience for every kind of traveler.`
+            ].join(' ');
+            section.innerHTML = `
+                <h2 style="color:blue; text-align:center;">${c.name}</h2>
+                <img src="https://flagcdn.com/w320/${c.code}.png" alt="${c.name} Flag" class="flag-img">
+                <p>${paragraph}</p>
+                <p>Top places to visit:</p>
+                <ol>${c.attractions.map(a => `<li>${a}</li>`).join('')}</ol>
+            `;
+            content.appendChild(section);
+        });
+    }
 }
 
 function slugify(name) {
@@ -174,14 +185,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const nextBtn = document.querySelector('.next-button');
     if (prevBtn) prevBtn.addEventListener('click', () => {
         showGalleryImage(galleryIndex - 1);
-        startGalleryAutoplay(); // reset the timer after a manual click
+        startGalleryAutoplay();
     });
     if (nextBtn) nextBtn.addEventListener('click', () => {
         showGalleryImage(galleryIndex + 1);
         startGalleryAutoplay();
     });
 
-    // Pause on hover so users can read the caption, resume on mouse leave
     const gallery = document.querySelector('.image-gallery');
     if (gallery) {
         gallery.addEventListener('mouseenter', stopGalleryAutoplay);
@@ -257,4 +267,146 @@ document.addEventListener('DOMContentLoaded', () => {
 
     /* Show modal on first load */
     openContinentModal();
+});
+
+/* ============================================================
+   COUNTRY / CITY SEARCH  (filters the page in place)
+   ============================================================ */
+document.addEventListener("DOMContentLoaded", () => {
+    const searchToggle  = document.getElementById("searchToggle");
+    const searchInput   = document.getElementById("countrySearch");
+    const searchResults = document.getElementById("searchResults");
+    const container     = document.getElementById("countrySearchContainer");
+
+    if (!searchToggle || !searchInput || !searchResults || !container) return;
+
+    // Start collapsed (matches the CSS, which expands on .active)
+    container.classList.remove("active");
+
+    // Every country in every continent, so we know where to jump to
+    // if the match isn't in the continent currently on screen.
+    function getAllPlaces() {
+        const list = [];
+        for (const continent in countriesData) {
+            countriesData[continent].forEach(c => {
+                list.push({ name: c.name, capital: c.capital, continent });
+            });
+        }
+        return list;
+    }
+    const ALL_PLACES = getAllPlaces();
+
+    function placeMatches(p, q) {
+        return p.name.toLowerCase().includes(q) || p.capital.toLowerCase().includes(q);
+    }
+
+    // Show/hide every rendered element (table rows, list items, TOC
+    // entries, full detail sections) based on which country names
+    // are allowed to stay visible.
+    function applyFilter(allowedNames) {
+        document.querySelectorAll("[data-country]").forEach(el => {
+            el.classList.toggle("search-hidden", !allowedNames.has(el.dataset.country));
+        });
+    }
+
+    function clearFilter() {
+        document.querySelectorAll("[data-country]").forEach(el => {
+            el.classList.remove("search-hidden");
+        });
+    }
+
+    function showStatus(message, isError) {
+        searchResults.textContent = message;
+        searchResults.classList.add("has-results");
+        searchResults.classList.toggle("no-results", !!isError);
+    }
+
+    function hideStatus() {
+        searchResults.textContent = "";
+        searchResults.classList.remove("has-results", "no-results");
+    }
+
+    function runSearch(rawQuery) {
+        const q = rawQuery.trim().toLowerCase();
+
+        if (!q) {
+            clearFilter();
+            hideStatus();
+            return;
+        }
+
+        // Does the current continent already contain a match?
+        const inCurrent = currentContinent
+            ? countriesData[currentContinent].filter(c => placeMatches(c, q))
+            : [];
+
+        if (inCurrent.length) {
+            applyFilter(new Set(inCurrent.map(c => c.name)));
+            showStatus(`${inCurrent.length} match${inCurrent.length > 1 ? "es" : ""} for "${rawQuery.trim()}"`);
+            return;
+        }
+
+        // No match on the current continent — look everywhere else.
+        const globalMatches = ALL_PLACES.filter(p => placeMatches(p, q));
+
+        if (!globalMatches.length) {
+            applyFilter(new Set());
+            showStatus(`No countries found for "${rawQuery.trim()}"`, true);
+            return;
+        }
+
+        // Jump to the continent of the first match, then filter it down.
+        const targetContinent = globalMatches[0].continent;
+        chooseContinent(targetContinent);
+        const namesInTarget = countriesData[targetContinent]
+            .filter(c => placeMatches(c, q))
+            .map(c => c.name);
+        applyFilter(new Set(namesInTarget));
+        showStatus(`${namesInTarget.length} match${namesInTarget.length > 1 ? "es" : ""} for "${rawQuery.trim()}" in ${continentLabels[targetContinent]}`);
+
+        // Scroll to the matching section once it's rendered.
+        setTimeout(() => {
+            const target = document.getElementById(slugify(globalMatches[0].name));
+            if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
+        }, 150);
+    }
+
+    // Toggle open / close when the SVG icon is clicked
+    searchToggle.addEventListener("click", (e) => {
+        e.stopPropagation();
+        const isOpen = container.classList.toggle("active");
+
+        if (isOpen) {
+            searchInput.focus();
+        } else {
+            searchInput.value = "";
+            clearFilter();
+            hideStatus();
+        }
+    });
+
+    // Live filter as the user types
+    searchInput.addEventListener("input", () => {
+        runSearch(searchInput.value);
+    });
+
+    // Escape closes the box and resets the filter
+    searchInput.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") {
+            searchInput.value = "";
+            clearFilter();
+            hideStatus();
+            container.classList.remove("active");
+        }
+    });
+
+    // Close when clicking outside (keeps the filter/results if the box
+    // still has text — only the collapse animation happens)
+    document.addEventListener("click", (e) => {
+        if (!container.contains(e.target) && !searchResults.contains(e.target)) {
+            if (!searchInput.value.trim()) {
+                container.classList.remove("active");
+            }
+        }
+    });
 });

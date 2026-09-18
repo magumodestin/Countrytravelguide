@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<title>World Travel Guide | Explore Destinations</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="continent-modal" id="continentModal">
+<div class="continent-modal-box">
+<h2>Which continent would you like to explore?</h2>
+<p>Pick a continent to see its top 20 travel destinations.</p>
+<div class="continent-grid">
+<button class="continent-btn" data-continent="Africa">🌍 Africa</button>
+<button class="continent-btn" data-continent="Asia">🌏 Asia</button>
+<button class="continent-btn" data-continent="Europe">🌍 Europe</button>
+<button class="continent-btn" data-continent="NorthAmerica">🌎 North America</button>
+<button class="continent-btn" data-continent="SouthAmerica">🌎 South America</button>
+<button class="continent-btn" data-continent="Oceania">🌏 Oceania</button>
+</div>
+</div>
+</div>
+<header>
+<nav>
+<ul>
+<li><a href="#home">Home</a></li>
+<li><a href="https://www.lonelyplanet.com/" target="_blank" rel="noopener noreferrer">Destinations</a></li>
+<li><a href="https://visaindex.com" target="_blank" rel="noopener noreferrer">Travel Visa Info</a></li>
+<li><a href="mailto:magumodestiny@gmail.com?subject=Hello&body=I'd like to know more about you.">About Me</a></li>
+<li><a href="tel:0718846311">Contact</a></li>
+<li>
+<button id="changeContinentBtn" class="nav-continent-btn">Change Continent (<span id="currentContinentLabel">choose one</span>)</button>
+</li>
+</ul>
+</nav>
+</header>
+<h1 id="home">Current Time 🌐⏲</h1>
+<div class="clock-container">
+<div class="analog-clock">
+<div class="clock-center"></div>
+<div class="hour-hand"></div>
+<div class="minute-hand"></div>
+<div class="second-hand"></div>
+<div class="clock-numbers">
+<div class="clock-number" style="top: 0%; left: 50%; transform: translateX(-50%);">12</div>
+<div class="clock-number" style="top: 15%; left: 75%; transform: translate(-50%, -50%);">1</div>
+<div class="clock-number" style="top: 30%; left: 90%; transform: translate(-50%, -50%);">2</div>
+<div class="clock-number" style="top: 50%; left: 100%; transform: translate(-100%, -50%);">3</div>
+<div class="clock-number" style="top: 70%; left: 90%; transform: translate(-50%, -50%);">4</div>
+<div class="clock-number" style="top: 85%; left: 75%; transform: translate(-50%, -50%);">5</div>
+<div class="clock-number" style="top: 90%; left: 50%;">6</div>
+<div class="clock-number" style="top: 85%; left: 25%; transform: translate(-50%, -50%);">7</div>
+<div class="clock-number" style="top: 70%; left: 10%; transform: translate(-50%, -50%);">8</div>
+<div class="clock-number" style="top: 50%; left: 0%; transform: translate(0%, -50%);">9</div>
+<div class="clock-number" style="top: 30%; left: 10%; transform: translate(-50%, -50%);">10</div>
+<div class="clock-number" style="top: 15%; left: 25%; transform: translate(-50%, -51%);">11</div>
+</div>
+</div>
+</div>
+<div class="content-section">
+<div class="digital-clock-container">
+<div class="digital-clock" id="digitalClock"></div>
+<div class="date-display" id="dateDisplay"></div>
+</div>
+<marquee direction="right" behavior="scroll" scrollamount="5" class="custom-marquee">
+<i id="topMarquee">🌍 Pick a continent above to see top destinations ✈️</i>
+</marquee>
+<div class="image-gallery">
+<div class="image-container active">
+<div class="image-text">Melbourne city</div>
+<img src="imgs/Melbourne city.jpg" alt="Melbourne city" onerror="this.src='https://picsum.photos/id/104/640/360?grayscale'; this.onerror=null;">
+</div>
+<div class="image-container">
+<div class="image-text">CBD in Melbourne</div>
+<img src="imgs/CBD in Melbourne.jpg" alt="CBD Melbourne" onerror="this.src='https://picsum.photos/id/20/640/360';">
+</div>
+<div class="image-container">
+<div class="image-text">Canberra city</div>
+<img src="imgs/Canberra.jpg" alt="Canberra" onerror="this.src='https://picsum.photos/id/15/640/360';">
+</div>
+<div class="image-container">
+<div class="image-text">Sydney Harbour bridge</div>
+<img src="imgs/Sydney.jpg" alt="Sydney Harbour" onerror="this.src='https://picsum.photos/id/96/640/360';">
+</div>
+<div class="image-container">
+<div class="image-text">Perth city</div>
+<img src="imgs/perth city.jpg" alt="Perth" onerror="this.src='https://picsum.photos/id/30/640/360';">
+</div>
+<div class="image-container">
+<div class="image-text">Brisbane CBD from Southbank</div>
+<img src="imgs/Brisbane CBD  from Southbank.jpg" alt="Brisbane" onerror="this.src='https://picsum.photos/id/91/640/360';">
+</div>
+<div class="image-container">
+<div class="image-text">Wheel of Brisbane Southbank</div>
+<img src="imgs/Wheel of Brisbane Southbank.jpg" alt="Wheel Brisbane" onerror="this.src='https://picsum.photos/id/44/640/360';">
+</div>
+<div class="image-container">
+<div class="image-text">Toronto city</div>
+<img src="imgs/toronto.jpg" alt="Toronto" onerror="this.src='https://picsum.photos/id/42/640/360';">
+</div>
+<div class="image-container">
+<div class="image-text">Toronto Panorama</div>
+<img src="imgs/Toronto Panorama.JPG" alt="Toronto Panorama" onerror="this.src='https://picsum.photos/id/58/640/360';">
+</div>
+<div class="image-container">
+<div class="image-text">São Paulo city</div>
+<img src="imgs/São Paulo, Brazil.jpg" alt="São Paulo" onerror="this.src='https://picsum.photos/id/67/640/360';">
+</div>
+<div class="image-container">
+<div class="image-text">Sunset Beach</div>
+<img src="imgs/beach.jpg" alt="Beach" onerror="this.src='https://picsum.photos/id/26/640/360';">
+</div>
+<div class="image-container">
+<div class="image-text">Ponte Estaiada</div>
+<img src="imgs/Ponte_Estaiada_e_CENU.jpg" alt="Ponte Estaiada" onerror="this.src='https://picsum.photos/id/171/640/360';">
+</div>
+<div class="image-container">
+<div class="image-text">London Tower Bridge</div>
+<img src="imgs/London.jpg" alt="London Bridge" onerror="this.src='https://picsum.photos/id/1/640/360';">
+</div>
+<div class="image-container">
+<div class="image-text">Diamond Beach</div>
+<img src="imgs/diamond beach.jpg" alt="Diamond Beach" onerror="this.src='https://picsum.photos/id/127/640/360';">
+</div>
+<div class="image-container">
+<div class="image-text">Kelingking Beach</div>
+<img src="imgs/Kelingking Beach.jpg" alt="Kelingking" onerror="this.src='https://picsum.photos/id/29/640/360';">
+</div>
+<div class="image-container">
+<div class="image-text">Yekaterinburg</div>
+<img src="imgs/yakaterinburg.jpg" alt="Yekaterinburg" onerror="this.src='https://picsum.photos/id/2/640/360';">
+</div>
+<div class="image-container">
+<div class="image-text">Berlin CBD</div>
+<img src="imgs/Berlin CBD.jpg" alt="Berlin" onerror="this.src='https://picsum.photos/id/7/640/360';">
+</div>
+<div class="image-container">
+<div class="image-text">Brasilia</div>
+<img src="imgs/Brasilia.jpg" alt="Brasilia" onerror="this.src='https://picsum.photos/id/116/640/360';">
+</div>
+<div class="image-container">
+<div class="image-text">New York City</div>
+<img src="imgs/New York City.jpeg" alt="NYC" onerror="this.src='https://picsum.photos/id/113/640/360';">
+</div>
+<div class="image-container">
+<div class="image-text">San Francisco</div>
+<img src="imgs/San Francisco.jpg" alt="San Francisco" onerror="this.src='https://picsum.photos/id/125/640/360';">
+</div>
+<div class="image-container">
+<div class="image-text">Santiago City</div>
+<img src="imgs/Santiago.jpg" alt="Santiago" onerror="this.src='https://picsum.photos/id/31/640/360';">
+</div>
+<div class="image-container">
+<div class="image-text">New York Skyline</div>
+<img src="imgs/NYC.jpg" alt="NYC Skyline" onerror="this.src='https://picsum.photos/id/153/640/360';">
+</div>
+<div class="image-container">
+<div class="image-text">Reykjavik, Iceland</div>
+<img src="imgs/Reykjavik.jpg" alt="Reykjavik" onerror="this.src='https://picsum.photos/id/1043/640/360';">
+</div>
+<div class="image-container">
+<div class="image-text">Jökulsárlón Glacier Lagoon</div>
+<img src="imgs/Jokulsarlon.jpg" alt="Jokulsarlon Glacier Lagoon" onerror="this.src='https://picsum.photos/id/1044/640/360';">
+</div>
+<button class="navigation-button previous-button" aria-label="Previous image">&#8592;</button>
+<button class="navigation-button next-button" aria-label="Next image">&#8594;</button>
+</div>
+<h1 class="red-title">Country Travel Information</h1>
+<hr class="red-divider">
+<button id="show-table-btn">Show Table</button>
+<div id="table-container" style="display: none;">
+<table>
+<thead>
+<tr>
+<th>Country</th>
+<th>Capital City</th>
+<th>Continent</th>
+</tr>
+</thead>
+<tbody id="countryTableBody">
+</tbody>
+</table>
+</div>
+<h1>Countries</h1>
+<div class="country-list">
+<marquee bgcolor="#33CC00" direction="left" behavior="scroll" scrollamount="4">
+<span id="countryMarquee">🌟 Pick a continent above 🌟</span>
+</marquee>
+<ol id="countryOl">
+</ol>
+</div>
+<h1>Cities</h1>
+<marquee bgcolor="#33CC00" direction="right" behavior="scroll" scrollamount="5" class="city-marquee">
+<span id="cityMarquee">🏙️ Pick a continent above 🏙️</span>
+</marquee>
+<div class="city-list">
+<ul id="cityUl">
+</ul>
+</div>
+</div>
+<button id="show-toc-btn" class="menu-toggle" aria-label="Open navigation menu" title="Navigation">☰</button>
+<div class="country-search" id="countrySearchContainer">
+<button id="searchToggle" class="search-toggle" aria-label="Search countries" title="Search countries">
+<svg viewBox="0 0 24 24" aria-hidden="true">
+<circle cx="11" cy="11" r="7"></circle>
+<line x1="16.5" y1="16.5" x2="22" y2="22"></line>
+</svg>
+</button>
+<input type="search" id="countrySearch" placeholder="Search country..." autocomplete="off" aria-label="Search country">
+</div>
+<div id="searchResults" class="search-results" role="status" aria-live="polite"></div>
+<button class="toggle-theme" id="themeToggle" aria-label="Toggle dark mode" title="Toggle dark mode">🌙</button>
+<button id="scroll-down-btn" title="Scroll Down" aria-label="Scroll Down">🔽</button>
+<button id="back-to-top-btn" title="Back to Top" aria-label="Back to Top">🔼</button>
+<div class="toc-overlay" id="tocOverlay"></div>
+<div class="container">
+<nav class="table-of-contents" id="tableOfContents">
+<h3 class="toc-section-title">Navigation</h3>
+<ul class="toc-main-nav">
+<li><a href="#home">Home</a></li>
+<li><a href="https://www.lonelyplanet.com/" target="_blank" rel="noopener noreferrer">Destinations</a></li>
+<li><a href="https://visaindex.com" target="_blank" rel="noopener noreferrer">Travel Visa Info</a></li>
+<li><a href="mailto:magumodestiny@gmail.com?subject=Hello&body=I'd like to know more about you.">About Me</a></li>
+<li><a href="tel:0718846311">Contact</a></li>
+</ul>
+<hr class="toc-divider">
+<h3 class="toc-section-title">Countries</h3>
+<ul id="tocCountryList">
+</ul>
+<li><a href="#email_us">Email Us</a></li>
+</nav>
+</div>
+<div class="content" id="countrySections">
+</div>
+<div class="content">
+<section id="email_us">
+<p>📧 Email us for more travel guide at <a href="mailto:magumodestiny@gmail.com">magumodestiny@gmail.com</a></p>
+<h3 class="orange-heading">or</h3>
+<p>📞 Contact: <a href="tel:0718846311" class="red-contact">071 884 6311</a></p>
+</section>
+</div>
+<script src="script.js"></script>
+</body>
+</html>

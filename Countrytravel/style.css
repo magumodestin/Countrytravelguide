@@ -1,4 +1,3 @@
-```css
 /* =========================================================
    ROOT VARIABLES
 ========================================================= */
@@ -799,6 +798,8 @@ li {
     background-color: #333;
 
     margin-left: -3px;
+
+    z-index: 1;
 }
 
 
@@ -810,17 +811,23 @@ li {
     background-color: #666;
 
     margin-left: -2px;
+
+    z-index: 2;
 }
 
 
 .second-hand {
-    width: 2px;
+    width: 3px;
 
     height: 90px;
 
-    background-color: var(--accent-color);
+    background-color: #ff0033;
 
-    margin-left: -1px;
+    margin-left: -1.5px;
+
+    z-index: 3;
+
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.6);
 }
 
 
@@ -1122,6 +1129,24 @@ marquee {
     font-weight: bold;
 
     color: blue;
+
+    border-radius: 6px;
+}
+
+
+.custom-marquee {
+    background-color: #ffffff;
+
+    color: #003366;
+}
+
+
+.dark-mode .custom-marquee {
+    background-color: #1e1e1e;
+
+    color: #ffffff;
+
+    border: 1px solid #00a0a0;
 }
 
 
@@ -1555,4 +1580,3 @@ marquee {
     }
 
 }
-```

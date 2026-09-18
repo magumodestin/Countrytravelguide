@@ -216,14 +216,22 @@ document.addEventListener('DOMContentLoaded', () => {
     const toc = document.getElementById('tableOfContents');
     const overlay = document.getElementById('tocOverlay');
     if (showTocBtn && toc && overlay) {
-        showTocBtn.addEventListener('click', () => {
+        const openToc = () => {
             toc.classList.add('active');
             overlay.classList.add('active');
-        });
-        overlay.addEventListener('click', () => {
+        };
+        const closeToc = () => {
             toc.classList.remove('active');
             overlay.classList.remove('active');
+        };
+        showTocBtn.addEventListener('click', () => {
+            if (toc.classList.contains('active')) {
+                closeToc();
+            } else {
+                openToc();
+            }
         });
+        overlay.addEventListener('click', closeToc);
     }
 
     /* Show/hide table */
@@ -242,7 +250,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const backToTopBtn = document.getElementById('back-to-top-btn');
     if (scrollDownBtn) {
         scrollDownBtn.addEventListener('click', () => {
-            window.scrollBy({ top: window.innerHeight * 0.8, behavior: 'smooth' });
+            window.scrollTo({ top: document.documentElement.scrollHeight, behavior: 'smooth' });
         });
     }
     if (backToTopBtn) {

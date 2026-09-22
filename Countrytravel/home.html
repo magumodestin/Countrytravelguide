@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>World Travel Guide | Explore Destinations</title>
+<link rel="stylesheet" href="home.css">
+</head>
+<body>
+<video autoplay muted loop playsinline id="bg-video" poster="fallback.jpg">
+<source src="vid/coverrtropical.webm" type="video/mp4">
+</video>
+<div class="video-overlay"></div>
+<div class="continent-modal" id="continentModal">
+<div class="continent-modal-box">
+<h2>Which continent would you like to explore?</h2>
+<p>Pick a continent to see its top 20 travel destinations.</p>
+<div class="continent-grid">
+<button class="continent-btn" data-continent="Africa">🌍 Africa</button>
+<button class="continent-btn" data-continent="Asia">🌏 Asia</button>
+<button class="continent-btn" data-continent="Europe">🌍 Europe</button>
+<button class="continent-btn" data-continent="NorthAmerica">🌎 North America</button>
+<button class="continent-btn" data-continent="SouthAmerica">🌎 South America</button>
+<button class="continent-btn" data-continent="Oceania">🌏 Oceania</button>
+</div>
+</div>
+</div>
+<header>
+<nav>
+<ul>
+<li><a href="#home">Home</a></li>
+<li><a href="https://www.lonelyplanet.com/" target="_blank" rel="noopener noreferrer">Destinations</a></li>
+<li><a href="https://visaindex.com" target="_blank" rel="noopener noreferrer">Travel Visa Info</a></li>
+<li><a href="mailto:travel@example.com?subject=Hello&amp;body=I%27d%20like%20to%20know%20more%20about%20you.">About Me</a></li>
+<li><a href="tel:0838347844">Contact</a></li>
+<li>
+<button id="changeContinentBtn" class="nav-continent-btn">Change Continent (<span id="currentContinentLabel">choose one</span>)</button>
+</li>
+</ul>
+</nav>
+</header>
+<h1 id="home">Current Time 🌐⏲</h1>
+<div class="clock-container">
+<div class="analog-clock">
+<div class="clock-center"></div>
+<div class="hour-hand"></div>
+<div class="minute-hand"></div>
+<div class="second-hand"></div>
+<div class="clock-numbers">
+<div class="clock-number" style="top: 0%; left: 50%; transform: translateX(-50%);">12</div>
+<div class="clock-number" style="top: 15%; left: 75%; transform: translate(-50%, -50%);">1</div>
+<div class="clock-number" style="top: 30%; left: 90%; transform: translate(-50%, -50%);">2</div>
+<div class="clock-number" style="top: 50%; left: 100%; transform: translate(-100%, -50%);">3</div>
+<div class="clock-number" style="top: 70%; left: 90%; transform: translate(-50%, -50%);">4</div>
+<div class="clock-number" style="top: 85%; left: 75%; transform: translate(-50%, -50%);">5</div>
+<div class="clock-number" style="top: 90%; left: 50%;">6</div>
+<div class="clock-number" style="top: 85%; left: 25%; transform: translate(-50%, -50%);">7</div>
+<div class="clock-number" style="top: 70%; left: 10%; transform: translate(-50%, -50%);">8</div>
+<div class="clock-number" style="top: 50%; left: 0%; transform: translate(0%, -50%);">9</div>
+<div class="clock-number" style="top: 30%; left: 10%; transform: translate(-50%, -50%);">10</div>
+<div class="clock-number" style="top: 15%; left: 25%; transform: translate(-50%, -51%);">11</div>
+</div>
+</div>
+</div>
+<div class="content-section">
+<div class="digital-clock-container">
+<div class="digital-clock" id="digitalClock"></div>
+<div class="date-display" id="dateDisplay"></div>
+</div>
+<marquee direction="right" behavior="scroll" scrollamount="5" class="custom-marquee">
+<i id="topMarquee">🌍 Pick a continent above to see top destinations ✈️</i>
+</marquee>
+<div class="image-gallery">
+<div class="image-container active">
+<div class="image-text">Melbourne city</div>
+<img src="imgs/Melbourne city.jpg" alt="Melbourne city" onerror="this.onerror=null;this.src='https://picsum.photos/id/104/640/360?grayscale';">
+</div>
+<div class="image-container">
+<div class="image-text">CBD in Melbourne</div>
+<img src="imgs/CBD in Melbourne.jpg" alt="CBD Melbourne" onerror="this.onerror=null;this.src='https://picsum.photos/id/20/640/360';">
+</div>
+<div class="image-container">
+<div class="image-text">Canberra city</div>
+<img src="imgs/Canberra.jpg" alt="Canberra" onerror="this.onerror=null;this.src='https://picsum.photos/id/15/640/360';">
+</div>
+<div class="image-container">
+<div class="image-text">Sydney Harbour bridge</div>
+<img src="imgs/Sydney.jpg" alt="Sydney Harbour" onerror="this.onerror=null;this.src='https://picsum.photos/id/96/640/360';">
+</div>
+<div class="image-container">
+<div class="image-text">Perth city</div>
+<img src="imgs/perth city.jpg" alt="Perth" onerror="this.onerror=null;this.src='https://picsum.photos/id/30/640/360';">
+</div>
+<div class="image-container">
+<div class="image-text">Brisbane CBD from Southbank</div>
+<img src="imgs/Brisbane CBD  from Southbank.jpg" alt="Brisbane" onerror="this.onerror=null;this.src='https://picsum.photos/id/91/640/360';">
+</div>
+<div class="image-container">
+<div class="image-text">Wheel of Brisbane Southbank</div>
+<img src="imgs/Wheel of Brisbane Southbank.jpg" alt="Wheel Brisbane" onerror="this.onerror=null;this.src='https://picsum.photos/id/44/640/360';">
+</div>
+<div class="image-container">
+<div class="image-text">Toronto city</div>
+<img src="imgs/toronto.jpg" alt="Toronto" onerror="this.onerror=null;this.src='https://picsum.photos/id/42/640/360';">
+</div>
+<div class="image-container">
+<div class="image-text">Toronto Panorama</div>
+<img src="imgs/Toronto Panorama.JPG" alt="Toronto Panorama" onerror="this.onerror=null;this.src='https://picsum.photos/id/58/640/360';">
+</div>
+<div class="image-container">
+<div class="image-text">São Paulo city</div>
+<img src="imgs/São Paulo, Brazil.jpg" alt="São Paulo" onerror="this.onerror=null;this.src='https://picsum.photos/id/67/640/360';">
+</div>
+<div class="image-container">
+<div class="image-text">Sunset Beach</div>
+<img src="imgs/beach.jpg" alt="Beach" onerror="this.onerror=null;this.src='https://picsum.photos/id/26/640/360';">
+</div>
+<div class="image-container">
+<div class="image-text">Ponte Estaiada</div>
+<img src="imgs/Ponte_Estaiada_e_CENU.jpg" alt="Ponte Estaiada" onerror="this.onerror=null;this.src='https://picsum.photos/id/171/640/360';">
+</div>
+<div class="image-container">
+<div class="image-text">London Tower Bridge</div>
+<img src="imgs/London.jpg" alt="London Bridge" onerror="this.onerror=null;this.src='https://picsum.photos/id/1/640/360';">
+</div>
+<div class="image-container">
+<div class="image-text">Diamond Beach</div>
+<img src="imgs/diamond beach.jpg" alt="Diamond Beach" onerror="this.onerror=null;this.src='https://picsum.photos/id/127/640/360';">
+</div>
+<div class="image-container">
+<div class="image-text">Kelingking Beach</div>
+<img src="imgs/Kelingking Beach.jpg" alt="Kelingking" onerror="this.onerror=null;this.src='https://picsum.photos/id/29/640/360';">
+</div>
+<div class="image-container">
+<div class="image-text">Yekaterinburg</div>
+<img src="imgs/yakaterinburg.jpg" alt="Yekaterinburg" onerror="this.onerror=null;this.src='https://picsum.photos/id/2/640/360';">
+</div>
+<div class="image-container">
+<div class="image-text">Berlin CBD</div>
+<img src="imgs/Berlin CBD.jpg" alt="Berlin" onerror="this.onerror=null;this.src='https://picsum.photos/id/7/640/360';">
+</div>
+<div class="image-container">
+<div class="image-text">Brasilia</div>
+<img src="imgs/Brasilia.jpg" alt="Brasilia" onerror="this.onerror=null;this.src='https://picsum.photos/id/116/640/360';">
+</div>
+<div class="image-container">
+<div class="image-text">New York City</div>
+<img src="imgs/New York City.jpeg" alt="NYC" onerror="this.onerror=null;this.src='https://picsum.photos/id/113/640/360';">
+</div>
+<div class="image-container">
+<div class="image-text">San Francisco</div>
+<img src="imgs/San Francisco.jpg" alt="San Francisco" onerror="this.onerror=null;this.src='https://picsum.photos/id/125/640/360';">
+</div>
+<div class="image-container">
+<div class="image-text">Santiago City</div>
+<img src="imgs/Santiago.jpg" alt="Santiago" onerror="this.onerror=null;this.src='https://picsum.photos/id/31/640/360';">
+</div>
+<div class="image-container">
+<div class="image-text">New York Skyline</div>
+<img src="imgs/NYC.jpg" alt="NYC Skyline" onerror="this.onerror=null;this.src='https://picsum.photos/id/153/640/360';">
+</div>
+<div class="image-container">
+<div class="image-text">Reykjavik, Iceland</div>
+<img src="imgs/Reykjavik.jpg" alt="Reykjavik" onerror="this.onerror=null;this.src='https://picsum.photos/id/1043/640/360';">
+</div>
+<div class="image-container">
+<div class="image-text">Jökulsárlón Glacier Lagoon</div>
+<img src="imgs/Jokulsarlon.jpg" alt="Jokulsarlon Glacier Lagoon" onerror="this.onerror=null;this.src='https://picsum.photos/id/1044/640/360';">
+</div>
+<button class="navigation-button previous-button" aria-label="Previous image">&#8592;</button>
+<button class="navigation-button next-button" aria-label="Next image">&#8594;</button>
+</div>
+<h1 class="red-title">Country Travel Information</h1>
+<hr class="red-divider">
+<button id="show-table-btn">Show Table</button>
+<div id="table-container" style="display: none;">
+<table>
+<thead>
+<tr>
+<th>Country</th>
+<th>Capital City</th>
+<th>Continent</th>
+</tr>
+</thead>
+<tbody id="countryTableBody">
+</tbody>
+</table>
+</div>
+<h1>Countries</h1>
+<div class="country-list">
+<marquee direction="left" behavior="scroll" scrollamount="4">
+<span id="countryMarquee">🌟 Pick a continent above 🌟</span>
+</marquee>
+<ol id="countryOl">
+</ol>
+</div>
+<h1>Cities</h1>
+<marquee direction="right" behavior="scroll" scrollamount="5" class="city-marquee">
+<span id="cityMarquee">🏙️ Pick a continent above 🏙️</span>
+</marquee>
+<div class="city-list">
+<ul id="cityUl">
+</ul>
+</div>
+</div>
+<button id="show-toc-btn" class="menu-toggle" aria-label="Open navigation menu" title="Navigation">☰</button>
+<div class="country-search" id="countrySearchContainer">
+<button id="searchToggle" class="search-toggle" aria-label="Search countries" title="Search countries">
+<svg viewBox="0 0 24 24" aria-hidden="true">
+<circle cx="11" cy="11" r="7"></circle>
+<line x1="16.5" y1="16.5" x2="22" y2="22"></line>
+</svg>
+</button>
+<input type="search" id="countrySearch" placeholder="Search country..." autocomplete="off" aria-label="Search country">
+</div>
+<div id="searchResults" class="search-results" role="status" aria-live="polite"></div>
+<button class="toggle-theme" id="themeToggle" aria-label="Toggle dark mode" title="Toggle dark mode">🌙</button>
+<button id="scroll-down-btn" title="Scroll Down" aria-label="Scroll Down">🔽</button>
+<button id="back-to-top-btn" title="Back to Top" aria-label="Back to Top">🔼</button>
+<div class="toc-overlay" id="tocOverlay"></div>
+<div class="container">
+<nav class="table-of-contents" id="tableOfContents">
+<h3 class="toc-section-title">Navigation</h3>
+<ul class="toc-main-nav">
+<li><a href="#home">Home</a></li>
+<li><a href="https://www.lonelyplanet.com/" target="_blank" rel="noopener noreferrer">Destinations</a></li>
+<li><a href="https://visaindex.com" target="_blank" rel="noopener noreferrer">Travel Visa Info</a></li>
+<li><a href="mailto:travel@example.com?subject=Hello&amp;body=I%27d%20like%20to%20know%20more%20about%20you.">About Me</a></li>
+<li><a href="tel:0838347844">Contact</a></li>
+</ul>
+<hr class="toc-divider">
+<h3 class="toc-section-title">Countries</h3>
+<ul id="tocCountryList">
+</ul>
+<hr class="toc-divider">
+<ul>
+<li><a href="#email_us">Email Us</a></li>
+</ul>
+</nav>
+</div>
+<div class="content" id="countrySections">
+</div>
+<div class="content">
+<section id="email_us">
+<h3 class="contact-heading">Contact us on these platforms</h3>
+<div class="contact-icons" aria-label="Contact and social media links">
+
+<a class="contact-icon-link email-icon"
+   href="mailto:magumodestiny@gmail.com"
+   aria-label="Email"
+   title="Email">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+     stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+<rect x="3" y="5" width="18" height="14" rx="2"></rect>
+<polyline points="3,7 12,13 21,7"></polyline>
+</svg>
+</a>
+
+<a class="contact-icon-link phone-icon"
+   href="tel:0718846311"
+   aria-label="Call"
+   title="Call">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+     stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+<path d="M22 16.92v3a2 2 0 0 1-2.18 2
+         19.79 19.79 0 0 1-8.63-3.07
+         19.5 19.5 0 0 1-6-6
+         19.79 19.79 0 0 1-3.07-8.67
+         A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72
+         12.84 12.84 0 0 0 .7 2.81
+         2 2 0 0 1-.45 2.11L8.09 9.91
+         a16 16 0 0 0 6 6l1.27-1.27
+         a2 2 0 0 1 2.11-.45
+         12.84 12.84 0 0 0 2.81.7
+         A2 2 0 0 1 22 16.92z"></path>
+</svg>
+</a>
+
+<a class="contact-icon-link whatsapp-icon"
+   href="https://wa.me/21718846311"
+   target="_blank"
+   rel="noopener noreferrer"
+   aria-label="WhatsApp"
+   title="WhatsApp">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+     stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+<path d="M21 11.5a8.38 8.38 0 0 1-9 9
+         8.5 8.5 0 0 1-4.1-1.05L3 21l1.55-4.65
+         A8.5 8.5 0 1 1 21 11.5z"></path>
+<path d="M8.5 8.5c.3-.6.6-.6 1-.6h.4
+         c.3 0 .5.1.7.5l.8 1.8
+         c.1.3.1.5-.1.7l-.7.8
+         c.6 1.2 1.5 2.1 2.7 2.7l.8-.7
+         c.2-.2.4-.2.7-.1l1.8.8
+         c.4.2.5.4.5.7.7v.4
+         c0 .4 0 .7-.6 1
+         -.5.3-1.1.4-1.7.2
+         -1.2-.3-2.5-1-3.7-2.2
+         -1.2-1.2-1.9-2.5-2.2-3.7
+         -.2-.6-.1-1.2.2-1.7z"></path>
+</svg>
+</a>
+
+<a class="contact-icon-link instagram-icon"
+   href="https://www.instagram.com/destine8917/"
+   target="_blank"
+   rel="noopener noreferrer"
+   aria-label="Instagram"
+   title="Instagram">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+     stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+<rect x="3" y="3" width="18" height="18" rx="5"></rect>
+<circle cx="12" cy="12" r="4"></circle>
+<circle cx="17.5" cy="6.5" r="1"></circle>
+</svg>
+</a>
+
+<a class="contact-icon-link facebook-icon"
+   href="https://www.facebook.com/profile.php?id=100066991579190"
+   target="_blank"
+   rel="noopener noreferrer"
+   aria-label="Facebook"
+   title="Facebook">
+<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+<path d="M14 8h3V4h-3c-3.3 0-5 1.9-5 5v3H6v4h3v8h4v-8h3.2l.8-4H13V9
+         c0-.7.3-1 1-1z"></path>
+</svg>
+</a>
+
+</div>
+</section>
+</div>
+<script src="home.js"></script>
+</body>
+</html>

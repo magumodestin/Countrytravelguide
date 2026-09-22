@@ -1,0 +1,406 @@
+const countriesData = {"Africa": [{"name": "Nigeria", "capital": "Abuja", "code": "ng", "attractions": ["Lekki Conservation Centre – canopy walkway & nature trails in Lagos", "Zuma Rock – giant monolith on the road to Abuja", "Yankari National Park – safaris and warm springs"], "blurb": "It is Africa's most populous nation and home to Nollywood, one of the world's largest film industries.", "vibe": "bustling cities, vibrant music, and diverse ethnic traditions", "bestTime": "the dry season, generally between November and March"}, {"name": "Egypt", "capital": "Cairo", "code": "eg", "attractions": ["Pyramids of Giza & the Sphinx – ancient wonders on Cairo's edge", "Egyptian Museum – treasures of Tutankhamun", "Nile River cruises between Luxor and Aswan"], "blurb": "It is home to one of the oldest surviving civilizations on Earth, with monuments dating back over 4,500 years.", "vibe": "ancient temples, desert landscapes, and the life-giving Nile", "bestTime": "spring or autumn, when temperatures are mild and the desert heat is bearable"}, {"name": "South Africa", "capital": "Pretoria", "code": "za", "attractions": ["Table Mountain – cable car views over Cape Town", "Kruger National Park – Big Five safaris", "Robben Island – Nelson Mandela's former prison"], "blurb": "It is often called the 'Rainbow Nation' for its rich mix of cultures, languages, and traditions.", "vibe": "dramatic coastlines, world-class wildlife, and vibrant cities", "bestTime": "the dry winter months from May to September, ideal for wildlife viewing and travel"}, {"name": "Kenya", "capital": "Nairobi", "code": "ke", "attractions": ["Maasai Mara – wildebeest migration and big cats", "Amboseli National Park – elephants beneath Kilimanjaro", "Nairobi National Park – wildlife on a city's doorstep"], "blurb": "It is considered the birthplace of the modern safari and home to the annual wildebeest migration.", "vibe": "open savannahs, iconic wildlife, and Maasai culture", "bestTime": "the dry season, generally June to October, for the best wildlife viewing"}, {"name": "Morocco", "capital": "Rabat", "code": "ma", "attractions": ["Marrakech Medina & souks – vibrant markets and Djemaa el-Fna", "Sahara Desert – camel treks and dunes near Merzouga", "Chefchaouen – the famous blue-washed hill town"], "blurb": "It sits at the crossroads of Africa, Europe, and the Arab world, blending Berber, Arab, and French influences.", "vibe": "colourful medinas, desert dunes, and mountain villages", "bestTime": "spring or autumn, when temperatures are mild and the desert heat is bearable"}, {"name": "Ghana", "capital": "Accra", "code": "gh", "attractions": ["Cape Coast Castle – poignant slave-trade history", "Kakum National Park – rainforest canopy walkway", "Labadi Beach – lively Accra beachfront"], "blurb": "It was the first sub-Saharan African country to gain independence from colonial rule, in 1957.", "vibe": "historic forts, golden beaches, and warm hospitality", "bestTime": "the dry season, generally between November and March"}, {"name": "Ethiopia", "capital": "Addis Ababa", "code": "et", "attractions": ["Lalibela – rock-hewn medieval churches", "Simien Mountains – dramatic trekking and gelada monkeys", "Danakil Depression – otherworldly volcanic salt flats"], "blurb": "It is the only African nation never colonized and uses its own unique calendar and time system.", "vibe": "ancient rock churches, highland treks, and rich coffee culture", "bestTime": "the dry season, generally June to October, for the best wildlife viewing"}, {"name": "Tanzania", "capital": "Dodoma", "code": "tz", "attractions": ["Serengeti National Park – classic safari and the Great Migration", "Mount Kilimanjaro – Africa's highest peak", "Zanzibar – spice tours and Stone Town"], "blurb": "It is home to Mount Kilimanjaro, Africa's tallest peak, and the vast Serengeti plains.", "vibe": "epic safaris, tropical islands, and towering mountains", "bestTime": "the dry season, generally June to October, for the best wildlife viewing"}, {"name": "Uganda", "capital": "Kampala", "code": "ug", "attractions": ["Bwindi Impenetrable Forest – mountain gorilla trekking", "Murchison Falls National Park – the Nile's most powerful falls", "Lake Bunyonyi – scenic crater lake"], "blurb": "It is one of only a few countries where travelers can trek to see wild mountain gorillas.", "vibe": "lush forests, great lakes, and rare wildlife", "bestTime": "the dry season, generally June to October, for the best wildlife viewing"}, {"name": "Zimbabwe", "capital": "Harare", "code": "zw", "attractions": ["Victoria Falls – one of the world's largest waterfalls", "Hwange National Park – large elephant herds", "Great Zimbabwe Ruins – ancient stone city", "Mutare – gateway city to the Eastern Highlands, surrounded by mountains and tea estates", "Chimanimani – dramatic mountain range and national park popular for hiking"], "blurb": "It shares Victoria Falls, one of the Seven Natural Wonders of the World, with neighbouring Zambia, and its eastern border is lined by the cool, forested Chimanimani and Bvumba mountains near the city of Mutare.", "vibe": "thundering waterfalls, granite mountains, and abundant game parks", "bestTime": "the dry winter months from May to September, ideal for wildlife viewing and travel"}, {"name": "Zambia", "capital": "Lusaka", "code": "zm", "attractions": ["Victoria Falls (Zambia side) – dramatic gorge views and Devil's Pool", "South Luangwa National Park – walking safaris", "Lower Zambezi National Park – canoe safaris"], "blurb": "It offers some of the most authentic walking safaris in Africa, pioneered in its South Luangwa Valley.", "vibe": "wild rivers, remote bush camps, and dramatic waterfalls", "bestTime": "the dry winter months from May to September, ideal for wildlife viewing and travel"}, {"name": "Botswana", "capital": "Gaborone", "code": "bw", "attractions": ["Okavango Delta – mokoro canoe safaris through the wetlands", "Chobe National Park – huge elephant populations", "Makgadikgadi Pan – vast salt pan landscapes"], "blurb": "It channels much of its tourism revenue into conservation, protecting one of Africa's largest elephant populations.", "vibe": "pristine wetlands, vast salt pans, and untouched wilderness", "bestTime": "the dry winter months from May to September, ideal for wildlife viewing and travel"}, {"name": "Namibia", "capital": "Windhoek", "code": "na", "attractions": ["Sossusvlei – towering red sand dunes in the Namib Desert", "Etosha National Park – waterhole wildlife viewing", "Skeleton Coast – shipwrecks and rugged Atlantic coastline"], "blurb": "It is home to some of the world's oldest and tallest sand dunes, found in the Namib Desert.", "vibe": "endless deserts, dramatic coastlines, and dark night skies", "bestTime": "the dry winter months from May to September, ideal for wildlife viewing and travel"}, {"name": "Rwanda", "capital": "Kigali", "code": "rw", "attractions": ["Volcanoes National Park – mountain gorilla trekking", "Lake Kivu – lakeside relaxation and boat trips", "Kigali Genocide Memorial – moving national history"], "blurb": "Known as the 'Land of a Thousand Hills,' it has become one of Africa's cleanest and safest destinations.", "vibe": "misty volcanoes, gorilla trekking, and rolling green hills", "bestTime": "the dry season, generally June to October, for the best wildlife viewing"}, {"name": "Senegal", "capital": "Dakar", "code": "sn", "attractions": ["Île de Gorée – historic island off Dakar", "Lake Retba (Pink Lake) – striking rose-coloured waters", "Saint-Louis – colonial-era river town"], "blurb": "It was a key hub of the trans-Atlantic slave trade, a history preserved on Gorée Island.", "vibe": "vibrant music, colonial architecture, and Atlantic coastline", "bestTime": "the dry season, generally between November and March"}, {"name": "Tunisia", "capital": "Tunis", "code": "tn", "attractions": ["Medina of Tunis – UNESCO old town and souks", "Carthage – ruins of the ancient Phoenician city", "Sahara Desert near Douz – dunes and oasis towns"], "blurb": "It is home to some of the best-preserved Roman ruins outside of Italy.", "vibe": "Mediterranean beaches, desert oases, and ancient ruins", "bestTime": "spring or autumn, when temperatures are mild and the desert heat is bearable"}, {"name": "Algeria", "capital": "Algiers", "code": "dz", "attractions": ["Casbah of Algiers – historic hillside old town", "Tassili n'Ajjer – Saharan rock art and dramatic desert scenery", "Roman ruins of Timgad – well-preserved ancient city"], "blurb": "It is geographically the largest country in Africa, dominated by the vast Sahara Desert.", "vibe": "Saharan dunes, Roman ruins, and Mediterranean coastline", "bestTime": "spring or autumn, when temperatures are mild and the desert heat is bearable"}, {"name": "Mozambique", "capital": "Maputo", "code": "mz", "attractions": ["Bazaruto Archipelago – white-sand islands and diving", "Gorongosa National Park – recovering wildlife reserve", "Ilha de Moçambique – historic coral-stone island town"], "blurb": "Its long Indian Ocean coastline is dotted with coral reefs and pristine, little-visited islands.", "vibe": "tropical archipelagos, coral reefs, and Portuguese-influenced culture", "bestTime": "the dry winter months from May to September, ideal for wildlife viewing and travel"}, {"name": "Madagascar", "capital": "Antananarivo", "code": "mg", "attractions": ["Avenue of the Baobabs – iconic tree-lined dirt road", "Andasibe-Mantadia National Park – lemurs and rainforest", "Tsingy de Bemaraha – razor-sharp limestone pinnacles"], "blurb": "Isolated for millions of years, it is home to wildlife found nowhere else on Earth, including lemurs.", "vibe": "unique wildlife, otherworldly landscapes, and tropical rainforests", "bestTime": "April to November, during the drier season"}, {"name": "Côte d'Ivoire", "capital": "Yamoussoukro", "code": "ci", "attractions": ["Basilica of Our Lady of Peace – one of the world's largest churches", "Taï National Park – rainforest biodiversity", "Grand-Bassam – historic colonial beach town"], "blurb": "It is one of the world's leading producers of cocoa, the key ingredient in chocolate.", "vibe": "lagoon towns, rainforest reserves, and West African culture", "bestTime": "the dry season, generally between November and March"}], "Asia": [{"name": "Japan", "capital": "Tokyo", "code": "jp", "attractions": ["Tokyo Skytree & Shibuya Crossing – modern city icons", "Mount Fuji – Japan's sacred, snow-capped peak", "Kyoto's temples and bamboo groves"], "blurb": "It seamlessly blends ultramodern cities with centuries-old temples and traditions.", "vibe": "neon-lit cities, ancient shrines, and cherry blossoms", "bestTime": "spring (March–May) or autumn (September–November), when temperatures are mild"}, {"name": "China", "capital": "Beijing", "code": "cn", "attractions": ["Great Wall of China – ancient fortifications near Beijing", "Forbidden City – imperial palace complex", "Terracotta Army in Xi'an"], "blurb": "It is home to over 5,000 years of continuous civilization and the longest man-made structure on Earth.", "vibe": "ancient wonders, modern megacities, and dramatic landscapes", "bestTime": "spring (March–May) or autumn (September–November), when temperatures are mild"}, {"name": "India", "capital": "New Delhi", "code": "in", "attractions": ["Taj Mahal – iconic marble mausoleum in Agra", "Jaipur's forts and palaces", "Varanasi – ancient city on the Ganges"], "blurb": "It is the birthplace of four major world religions and home to over a billion people.", "vibe": "colourful festivals, spiritual sites, and diverse landscapes", "bestTime": "October to March, during the cooler, drier months"}, {"name": "Thailand", "capital": "Bangkok", "code": "th", "attractions": ["Grand Palace & Wat Arun in Bangkok", "Phi Phi Islands – turquoise waters and cliffs", "Chiang Mai temples and night markets"], "blurb": "Known as the 'Land of Smiles,' it is one of Southeast Asia's most visited countries.", "vibe": "golden temples, tropical islands, and vibrant street food", "bestTime": "the dry season, generally November to April"}, {"name": "Vietnam", "capital": "Hanoi", "code": "vn", "attractions": ["Halong Bay – limestone karsts on emerald water", "Hoi An's lantern-lit old town", "Hanoi's Old Quarter and street food"], "blurb": "It stretches over 1,000 miles along the South China Sea, from a mountainous north to the Mekong Delta in the south.", "vibe": "limestone karsts, ancient towns, and bustling street life", "bestTime": "the dry season, generally November to April"}, {"name": "South Korea", "capital": "Seoul", "code": "kr", "attractions": ["Gyeongbokgung Palace in Seoul", "Jeju Island – volcanic landscapes and beaches", "Busan's beaches and markets"], "blurb": "It has become a global cultural powerhouse through K-pop, film, and cuisine.", "vibe": "futuristic cities, royal palaces, and volcanic islands", "bestTime": "spring (March–May) or autumn (September–November), when temperatures are mild"}, {"name": "Indonesia", "capital": "Jakarta", "code": "id", "attractions": ["Bali's temples, rice terraces and beaches", "Borobudur – the world's largest Buddhist temple", "Komodo National Park – home of the Komodo dragon"], "blurb": "It is the world's largest archipelago, spanning more than 17,000 islands.", "vibe": "volcanic landscapes, coral reefs, and diverse cultures", "bestTime": "the dry season, generally November to April"}, {"name": "Malaysia", "capital": "Kuala Lumpur", "code": "my", "attractions": ["Petronas Twin Towers in Kuala Lumpur", "Langkawi's beaches and cable car", "Batu Caves – limestone temple caves"], "blurb": "It blends Malay, Chinese, and Indian cultures into one of Asia's most diverse societies.", "vibe": "rainforest canopies, modern skylines, and island beaches", "bestTime": "the dry season, generally November to April"}, {"name": "Singapore", "capital": "Singapore", "code": "sg", "attractions": ["Gardens by the Bay – futuristic Supertrees", "Marina Bay Sands SkyPark", "Sentosa Island – beaches and attractions"], "blurb": "This compact city-state has transformed from a small port into one of the world's wealthiest nations.", "vibe": "futuristic gardens, hawker food, and multicultural neighbourhoods", "bestTime": "the dry season, generally November to April"}, {"name": "Philippines", "capital": "Manila", "code": "ph", "attractions": ["Palawan's El Nido and Coron island-hopping", "Chocolate Hills of Bohol", "Banaue Rice Terraces"], "blurb": "It consists of more than 7,000 islands, many with pristine, little-visited beaches.", "vibe": "turquoise lagoons, island-hopping, and warm hospitality", "bestTime": "the dry season, generally November to April"}, {"name": "United Arab Emirates", "capital": "Abu Dhabi", "code": "ae", "attractions": ["Burj Khalifa – the world's tallest building, in Dubai", "Sheikh Zayed Grand Mosque in Abu Dhabi", "Desert safaris and dune bashing"], "blurb": "It transformed from a desert trading region into a global hub for business and luxury tourism in just a few decades.", "vibe": "futuristic skylines, desert dunes, and luxury shopping", "bestTime": "October to April, avoiding the intense summer heat"}, {"name": "Saudi Arabia", "capital": "Riyadh", "code": "sa", "attractions": ["AlUla – ancient Nabatean tombs at Hegra", "Historic Diriyah near Riyadh", "Red Sea coast diving and beaches"], "blurb": "Home to Islam's two holiest cities, it only opened its doors to international tourists in recent years.", "vibe": "ancient rock-cut tombs, desert landscapes, and Red Sea coastline", "bestTime": "October to April, avoiding the intense summer heat"}, {"name": "Turkey", "capital": "Ankara", "code": "tr", "attractions": ["Hagia Sophia & Blue Mosque in Istanbul", "Cappadocia's hot-air balloons and fairy chimneys", "Pamukkale's white travertine terraces"], "blurb": "It straddles two continents, with Istanbul uniquely spanning both Europe and Asia.", "vibe": "historic bazaars, dramatic coastlines, and ancient ruins", "bestTime": "April to June or September to October, when the weather is mild"}, {"name": "Israel", "capital": "Jerusalem", "code": "il", "attractions": ["Old City of Jerusalem – Western Wall and holy sites", "Dead Sea – floating in mineral-rich water", "Tel Aviv's beaches and nightlife"], "blurb": "It holds some of the world's most significant religious sites for Judaism, Christianity, and Islam.", "vibe": "ancient holy cities, desert landscapes, and Mediterranean beaches", "bestTime": "October to April, avoiding the intense summer heat"}, {"name": "Jordan", "capital": "Amman", "code": "jo", "attractions": ["Petra – the rose-red rock-carved city", "Wadi Rum – dramatic desert canyons", "Floating in the Dead Sea"], "blurb": "Its ancient city of Petra was carved directly into rose-coloured sandstone cliffs over 2,000 years ago.", "vibe": "desert canyons, ancient ruins, and Dead Sea shores", "bestTime": "October to April, avoiding the intense summer heat"}, {"name": "Sri Lanka", "capital": "Sri Jayawardenepura Kotte", "code": "lk", "attractions": ["Sigiriya Rock Fortress", "Tea plantations around Ella and Nuwara Eliya", "Yala National Park safaris"], "blurb": "This teardrop-shaped island packs rainforests, beaches, and ancient cities into a relatively small area.", "vibe": "misty tea hills, ancient ruins, and tropical coastline", "bestTime": "December to March on the west and south coasts, during the drier season"}, {"name": "Nepal", "capital": "Kathmandu", "code": "np", "attractions": ["Everest Base Camp trekking region", "Kathmandu's Durbar Square temples", "Pokhara's lakes and mountain views"], "blurb": "It is home to eight of the world's ten highest mountains, including Mount Everest.", "vibe": "towering peaks, Himalayan trails, and Buddhist monasteries", "bestTime": "October to March, during the cooler, drier months"}, {"name": "Cambodia", "capital": "Phnom Penh", "code": "kh", "attractions": ["Angkor Wat – vast temple complex near Siem Reap", "Tonle Sap Lake floating villages", "Phnom Penh's royal palace and history museums"], "blurb": "Its Angkor Wat is the largest religious monument in the world, built in the 12th century.", "vibe": "ancient temple complexes, rural countryside, and riverside life", "bestTime": "the dry season, generally November to April"}, {"name": "Mongolia", "capital": "Ulaanbaatar", "code": "mn", "attractions": ["Gobi Desert – dunes and dinosaur fossil sites", "Steppe horseback riding and nomadic ger camps", "Khövsgöl Lake"], "blurb": "It is one of the world's most sparsely populated countries, with a deep nomadic herding tradition.", "vibe": "vast steppe, nomadic culture, and desert landscapes", "bestTime": "June to September, during the short but pleasant summer"}, {"name": "Qatar", "capital": "Doha", "code": "qa", "attractions": ["Museum of Islamic Art in Doha", "Souq Waqif – traditional market and dining", "Desert safaris at the Inland Sea"], "blurb": "This small peninsula nation transformed rapidly from a pearl-diving economy into a global business and sports hub.", "vibe": "modern skyscrapers, desert dunes, and traditional souqs", "bestTime": "October to April, avoiding the intense summer heat"}], "Europe": [{"name": "France", "capital": "Paris", "code": "fr", "attractions": ["Eiffel Tower & Louvre in Paris", "Palace of Versailles", "French Riviera coastline"], "blurb": "It is the world's most visited country, drawing tens of millions of travelers every year.", "vibe": "romantic cities, rolling vineyards, and Alpine peaks", "bestTime": "April to June or September to October, when the weather is mild and crowds are smaller"}, {"name": "Italy", "capital": "Rome", "code": "it", "attractions": ["Colosseum & Roman Forum in Rome", "Canals of Venice", "Amalfi Coast villages"], "blurb": "It is home to more UNESCO World Heritage Sites than any other country on Earth.", "vibe": "ancient ruins, Renaissance art, and coastal villages", "bestTime": "April to June or September to October, when the weather is mild and crowds are smaller"}, {"name": "Spain", "capital": "Madrid", "code": "es", "attractions": ["Sagrada Família & Park Güell in Barcelona", "Alhambra palace in Granada", "Prado Museum in Madrid"], "blurb": "It has the second-highest number of UNESCO World Heritage Sites in the world after Italy.", "vibe": "flamenco culture, Mediterranean beaches, and historic architecture", "bestTime": "April to June or September to October, when the weather is mild and crowds are smaller"}, {"name": "Germany", "capital": "Berlin", "code": "de", "attractions": ["Brandenburg Gate & Berlin Wall Memorial", "Neuschwanstein Castle in Bavaria", "Munich's Oktoberfest and beer halls"], "blurb": "It blends medieval old towns with cutting-edge cities and world-famous engineering.", "vibe": "fairytale castles, historic city centres, and Alpine scenery", "bestTime": "April to June or September to October, when the weather is mild and crowds are smaller"}, {"name": "United Kingdom", "capital": "London", "code": "gb", "attractions": ["Tower Bridge & Buckingham Palace in London", "Edinburgh Castle in Scotland", "Stonehenge"], "blurb": "It comprises England, Scotland, Wales, and Northern Ireland, each with its own distinct culture.", "vibe": "historic castles, rolling countryside, and vibrant cities", "bestTime": "April to June or September to October, when the weather is mild and crowds are smaller"}, {"name": "Greece", "capital": "Athens", "code": "gr", "attractions": ["Acropolis & Parthenon in Athens", "Santorini's caldera views", "Mykonos beaches and windmills"], "blurb": "It is considered the birthplace of Western philosophy, democracy, and the Olympic Games.", "vibe": "ancient ruins, whitewashed islands, and turquoise waters", "bestTime": "April to June or September to October, when the weather is mild and crowds are smaller"}, {"name": "Portugal", "capital": "Lisbon", "code": "pt", "attractions": ["Belém Tower & trams of Lisbon", "Porto's riverside Ribeira district", "Algarve's cliffs and beaches"], "blurb": "Its sailors once led the Age of Exploration, and its maritime history still shapes its culture today.", "vibe": "colourful coastal towns, historic castles, and Atlantic beaches", "bestTime": "April to June or September to October, when the weather is mild and crowds are smaller"}, {"name": "Netherlands", "capital": "Amsterdam", "code": "nl", "attractions": ["Amsterdam's canals and Anne Frank House", "Keukenhof tulip gardens", "Windmills of Kinderdijk"], "blurb": "Roughly a quarter of the country sits below sea level, reclaimed through centuries of engineering.", "vibe": "canal cities, tulip fields, and cycling culture", "bestTime": "April to June or September to October, when the weather is mild and crowds are smaller"}, {"name": "Switzerland", "capital": "Bern", "code": "ch", "attractions": ["Matterhorn views from Zermatt", "Lake Geneva and Château de Chillon", "Jungfraujoch – Top of Europe"], "blurb": "It is home to some of the highest peaks and most scenic train journeys in the Alps.", "vibe": "snow-capped mountains, alpine lakes, and charming villages", "bestTime": "April to June or September to October, when the weather is mild and crowds are smaller"}, {"name": "Austria", "capital": "Vienna", "code": "at", "attractions": ["Schönbrunn Palace in Vienna", "Hallstatt's lakeside village", "Salzburg's Old Town"], "blurb": "It was the heart of a vast empire and remains a centre for classical music and imperial architecture.", "vibe": "grand palaces, alpine villages, and musical heritage", "bestTime": "April to June or September to October, when the weather is mild and crowds are smaller"}, {"name": "Norway", "capital": "Oslo", "code": "no", "attractions": ["Geirangerfjord and Norway's fjords", "Northern Lights in Tromsø", "Bergen's colourful Bryggen wharf"], "blurb": "Its dramatic coastline is carved with fjords formed by ancient glaciers.", "vibe": "deep fjords, the midnight sun, and the northern lights", "bestTime": "June to August for long daylight hours and warmer temperatures, or the winter months for a chance to see the northern lights"}, {"name": "Sweden", "capital": "Stockholm", "code": "se", "attractions": ["Gamla Stan – Stockholm's old town", "Icehotel in Jukkasjärvi", "Archipelago boat tours"], "blurb": "It is home to thousands of islands and one of the world's few hotels made entirely of ice.", "vibe": "island archipelagos, design-forward cities, and arctic wilderness", "bestTime": "June to August for long daylight hours and warmer temperatures, or the winter months for a chance to see the northern lights"}, {"name": "Iceland", "capital": "Reykjavik", "code": "is", "attractions": ["Golden Circle – Þingvellir, Geysir and Gullfoss", "Jökulsárlón Glacier Lagoon and Diamond Beach", "Blue Lagoon geothermal spa"], "blurb": "It sits atop the Mid-Atlantic Ridge, giving it one of the most volcanically active landscapes on Earth.", "vibe": "glaciers, geysers, and dramatic waterfalls", "bestTime": "June to August for long daylight hours and warmer temperatures, or the winter months for a chance to see the northern lights"}, {"name": "Ireland", "capital": "Dublin", "code": "ie", "attractions": ["Cliffs of Moher", "Ring of Kerry scenic drive", "Dublin's Trinity College and pubs"], "blurb": "Known as the Emerald Isle for its lush green countryside, it has a storytelling tradition stretching back centuries.", "vibe": "rolling green hills, rugged cliffs, and traditional pubs", "bestTime": "April to June or September to October, when the weather is mild and crowds are smaller"}, {"name": "Croatia", "capital": "Zagreb", "code": "hr", "attractions": ["Dubrovnik's Old City walls", "Plitvice Lakes National Park", "Split's Diocletian's Palace"], "blurb": "Its Adriatic coastline is dotted with over a thousand islands and well-preserved medieval towns.", "vibe": "walled coastal cities, island-hopping, and crystal-clear waters", "bestTime": "April to June or September to October, when the weather is mild and crowds are smaller"}, {"name": "Poland", "capital": "Warsaw", "code": "pl", "attractions": ["Kraków's Old Town and Wawel Castle", "Auschwitz-Birkenau Memorial", "Warsaw's rebuilt Old Town"], "blurb": "It has rebuilt much of its historic architecture after near-total destruction during the Second World War.", "vibe": "rebuilt old towns, moving history, and vibrant cities", "bestTime": "April to June or September to October, when the weather is mild and crowds are smaller"}, {"name": "Czech Republic", "capital": "Prague", "code": "cz", "attractions": ["Prague Castle and Charles Bridge", "Astronomical Clock in Old Town Square", "Český Krumlov's fairytale streets"], "blurb": "Its capital, Prague, is famed for having one of the best-preserved medieval city centres in Europe.", "vibe": "gothic architecture, historic breweries, and fairytale streets", "bestTime": "April to June or September to October, when the weather is mild and crowds are smaller"}, {"name": "Hungary", "capital": "Budapest", "code": "hu", "attractions": ["Buda Castle and Fisherman's Bastion", "Thermal baths of Budapest", "Danube river cruises"], "blurb": "It is home to more thermal springs and public baths than almost anywhere else in the world.", "vibe": "thermal baths, grand architecture, and riverside views", "bestTime": "April to June or September to October, when the weather is mild and crowds are smaller"}, {"name": "Finland", "capital": "Helsinki", "code": "fi", "attractions": ["Helsinki's design district and cathedral", "Lapland – Northern Lights and reindeer safaris", "Suomenlinna sea fortress"], "blurb": "It is officially ranked among the happiest countries in the world in global happiness surveys.", "vibe": "endless forests, arctic lakes, and northern lights", "bestTime": "June to August for long daylight hours and warmer temperatures, or the winter months for a chance to see the northern lights"}, {"name": "Denmark", "capital": "Copenhagen", "code": "dk", "attractions": ["Nyhavn's colourful harbour in Copenhagen", "Tivoli Gardens amusement park", "Legoland Billund"], "blurb": "It consistently ranks among the world's happiest and most liveable countries.", "vibe": "colourful harbours, design culture, and fairytale castles", "bestTime": "June to August for long daylight hours and warmer temperatures, or the winter months for a chance to see the northern lights"}], "NorthAmerica": [{"name": "United States", "capital": "Washington D.C.", "code": "us", "attractions": ["Grand Canyon National Park", "Statue of Liberty & Central Park, New York City", "Golden Gate Bridge, San Francisco"], "blurb": "It spans a vast range of landscapes, from tropical beaches to snow-capped mountains and desert canyons.", "vibe": "iconic cities, national parks, and diverse regional cultures", "bestTime": "late spring to early fall, generally May to September, depending on the region"}, {"name": "Canada", "capital": "Ottawa", "code": "ca", "attractions": ["Niagara Falls", "Banff National Park in the Rockies", "CN Tower, Toronto"], "blurb": "It has the longest coastline of any country in the world, bordering three oceans.", "vibe": "vast wilderness, mountain ranges, and multicultural cities", "bestTime": "late spring to early fall, generally May to September, depending on the region"}, {"name": "Mexico", "capital": "Mexico City", "code": "mx", "attractions": ["Chichén Itzá Mayan ruins", "Teotihuacan pyramids near Mexico City", "Cancún and the Riviera Maya beaches"], "blurb": "It is home to more UNESCO World Heritage Sites than any other country in the Americas.", "vibe": "ancient ruins, colonial towns, and Caribbean beaches", "bestTime": "the dry season, generally November to April"}, {"name": "Costa Rica", "capital": "San José", "code": "cr", "attractions": ["Arenal Volcano and hot springs", "Manuel Antonio National Park beaches", "Monteverde Cloud Forest"], "blurb": "Despite covering just a tiny fraction of the planet's surface, it holds an outsized share of the world's biodiversity.", "vibe": "rainforest canopies, volcanoes, and eco-lodges", "bestTime": "the dry season, generally November to April"}, {"name": "Panama", "capital": "Panama City", "code": "pa", "attractions": ["Panama Canal locks and visitor centre", "Casco Viejo, Panama City's old quarter", "San Blas Islands"], "blurb": "Its famous canal handles a significant share of world trade by connecting the Atlantic and Pacific oceans.", "vibe": "rainforest wildlife, colonial architecture, and island getaways", "bestTime": "the dry season, generally November to April"}, {"name": "Cuba", "capital": "Havana", "code": "cu", "attractions": ["Old Havana's colourful colonial streets", "Varadero's white-sand beaches", "Viñales Valley tobacco farms"], "blurb": "Its capital, Havana, is known for classic 1950s American cars still in daily use.", "vibe": "colonial streets, salsa music, and tobacco plantations", "bestTime": "the dry season, generally November to April"}, {"name": "Jamaica", "capital": "Kingston", "code": "jm", "attractions": ["Dunn's River Falls in Ocho Rios", "Blue Mountains coffee country", "Negril's Seven Mile Beach"], "blurb": "It is the birthplace of reggae music and legendary musician Bob Marley.", "vibe": "waterfalls, reggae rhythms, and turquoise coastline", "bestTime": "the dry season, generally November to April"}, {"name": "Dominican Republic", "capital": "Santo Domingo", "code": "do", "attractions": ["Punta Cana's resort beaches", "Colonial Zone of Santo Domingo", "Samaná's whale watching"], "blurb": "Its capital, Santo Domingo, is home to the oldest European settlement in the Americas.", "vibe": "all-inclusive resorts, colonial history, and mountain landscapes", "bestTime": "the dry season, generally November to April"}, {"name": "Guatemala", "capital": "Guatemala City", "code": "gt", "attractions": ["Tikal's Mayan temple ruins", "Lake Atitlán surrounded by volcanoes", "Antigua's colonial architecture"], "blurb": "It was once the heart of the ancient Maya civilization, with pyramids still rising above the jungle.", "vibe": "Maya ruins, volcanic lakes, and colonial towns", "bestTime": "the dry season, generally November to April"}, {"name": "Honduras", "capital": "Tegucigalpa", "code": "hn", "attractions": ["Copán's Mayan ruins", "Roatán's coral reefs and diving", "Pico Bonito National Park"], "blurb": "Its Bay Islands sit along one of the largest barrier reef systems in the world.", "vibe": "Maya ruins, coral reefs, and cloud forests", "bestTime": "the dry season, generally November to April"}, {"name": "Belize", "capital": "Belmopan", "code": "bz", "attractions": ["Great Blue Hole diving site", "Caye Caulker's laid-back island life", "Ambergris Caye's barrier reef"], "blurb": "It has one of the lowest population densities in Central America and English as its official language.", "vibe": "barrier reefs, jungle ruins, and laid-back island life", "bestTime": "the dry season, generally November to April"}, {"name": "Bahamas", "capital": "Nassau", "code": "bs", "attractions": ["Exuma's swimming pigs and cays", "Nassau's colonial old town", "Andros Island barrier reef"], "blurb": "It is made up of hundreds of islands and cays scattered across crystal-clear waters.", "vibe": "powder-white beaches, coral reefs, and island hopping", "bestTime": "the dry season, generally November to April"}, {"name": "Nicaragua", "capital": "Managua", "code": "ni", "attractions": ["Ometepe Island's twin volcanoes", "Colonial Granada's plazas and churches", "León's cathedrals and volcano boarding"], "blurb": "It is known as the 'Land of Lakes and Volcanoes' for its striking natural geography.", "vibe": "colonial cities, volcanic lakes, and Pacific surf towns", "bestTime": "the dry season, generally November to April"}, {"name": "El Salvador", "capital": "San Salvador", "code": "sv", "attractions": ["Ruta de las Flores mountain villages", "Joya de Cerén archaeological site", "Surfing at El Tunco beach"], "blurb": "Despite being Central America's smallest country, it has become a rising destination for surfers.", "vibe": "volcanic hills, coffee farms, and Pacific surf breaks", "bestTime": "the dry season, generally November to April"}, {"name": "Barbados", "capital": "Bridgetown", "code": "bb", "attractions": ["Harrison's Cave underground formations", "Bathsheba's dramatic east coast", "Bridgetown's historic Garrison"], "blurb": "It has one of the longest histories of British colonial heritage in the Caribbean.", "vibe": "pink-sand beaches, rum distilleries, and colonial charm", "bestTime": "the dry season, generally November to April"}, {"name": "Haiti", "capital": "Port-au-Prince", "code": "ht", "attractions": ["Citadelle Laferrière mountaintop fortress", "Sans-Souci Palace ruins", "Jacmel's colourful art scene"], "blurb": "It became the world's first Black-led republic after a successful revolt in 1804.", "vibe": "mountaintop fortresses, vibrant art, and rich history", "bestTime": "the dry season, generally November to April"}, {"name": "Puerto Rico", "capital": "San Juan", "code": "pr", "attractions": ["Old San Juan's colonial forts", "El Yunque rainforest", "Bioluminescent bays"], "blurb": "As a U.S. territory, it blends Caribbean culture with easy access for American travelers.", "vibe": "colonial old towns, rainforest hikes, and bioluminescent bays", "bestTime": "the dry season, generally November to April"}, {"name": "Bermuda", "capital": "Hamilton", "code": "bm", "attractions": ["Horseshoe Bay's pink-sand beach", "Crystal Caves", "St. George's historic town"], "blurb": "Its pink-sand beaches get their unique hue from crushed coral and shells.", "vibe": "pink-sand beaches, pastel architecture, and clear waters", "bestTime": "the dry season, generally November to April"}, {"name": "Grenada", "capital": "St. George's", "code": "gd", "attractions": ["Grand Anse Beach", "Underwater Sculpture Park", "Spice plantations and nutmeg tours"], "blurb": "Known as the 'Spice Isle,' it is one of the world's largest producers of nutmeg.", "vibe": "spice plantations, hidden beaches, and volcanic peaks", "bestTime": "the dry season, generally November to April"}, {"name": "Saint Lucia", "capital": "Castries", "code": "lc", "attractions": ["The Pitons – twin volcanic peaks", "Sulphur Springs drive-in volcano", "Marigot Bay"], "blurb": "Its twin volcanic peaks, the Pitons, rise dramatically straight out of the Caribbean Sea.", "vibe": "volcanic peaks, rainforest trails, and Caribbean shoreline", "bestTime": "the dry season, generally November to April"}], "SouthAmerica": [{"name": "Brazil", "capital": "Brasília", "code": "br", "attractions": ["Christ the Redeemer & Rio's beaches", "Iguazu Falls", "Amazon Rainforest river tours"], "blurb": "It is the largest country in South America and home to most of the Amazon Rainforest.", "vibe": "vibrant carnivals, tropical rainforest, and endless coastline", "bestTime": "the dry season, generally May to September"}, {"name": "Argentina", "capital": "Buenos Aires", "code": "ar", "attractions": ["Perito Moreno Glacier in Patagonia", "Iguazú Falls (Argentine side)", "Buenos Aires' tango culture"], "blurb": "It stretches from subtropical jungles in the north to glaciers and fjords in Patagonia in the south.", "vibe": "tango culture, wine country, and glacial landscapes", "bestTime": "the shoulder seasons of spring (September–November) or autumn (March–May)"}, {"name": "Chile", "capital": "Santiago", "code": "cl", "attractions": ["Atacama Desert's otherworldly landscapes", "Torres del Paine National Park in Patagonia", "Easter Island's moai statues"], "blurb": "It is one of the longest and narrowest countries in the world, stretching over 2,600 miles.", "vibe": "desert landscapes, Andean peaks, and Patagonian wilderness", "bestTime": "the shoulder seasons of spring (September–November) or autumn (March–May)"}, {"name": "Peru", "capital": "Lima", "code": "pe", "attractions": ["Machu Picchu, the lost Inca city", "Sacred Valley and Cusco", "Lake Titicaca's floating islands"], "blurb": "It was once the heart of the Inca Empire, the largest empire in pre-Columbian America.", "vibe": "ancient citadels, Andean peaks, and Amazon jungle", "bestTime": "the shoulder seasons of spring (September–November) or autumn (March–May)"}, {"name": "Colombia", "capital": "Bogotá", "code": "co", "attractions": ["Cartagena's colourful walled city", "Coffee region (Eje Cafetero)", "Tayrona National Park beaches"], "blurb": "It is one of the most biodiverse countries on Earth despite its complex modern history.", "vibe": "colonial cities, coffee farms, and Caribbean coastline", "bestTime": "the dry season, generally May to September"}, {"name": "Ecuador", "capital": "Quito", "code": "ec", "attractions": ["Galápagos Islands wildlife", "Quito's colonial Old Town", "Cotopaxi volcano"], "blurb": "It is named after the equator, which runs directly through the country.", "vibe": "unique wildlife, volcanic highlands, and Amazon rainforest", "bestTime": "the dry season, generally May to September"}, {"name": "Bolivia", "capital": "Sucre", "code": "bo", "attractions": ["Salar de Uyuni – the world's largest salt flat", "La Paz's cable-car views", "Lake Titicaca's Isla del Sol"], "blurb": "It is home to the world's largest salt flat, so reflective it can look like a giant mirror after rain.", "vibe": "high-altitude landscapes, ancient culture, and vast salt flats", "bestTime": "the shoulder seasons of spring (September–November) or autumn (March–May)"}, {"name": "Uruguay", "capital": "Montevideo", "code": "uy", "attractions": ["Colonia del Sacramento's cobblestone streets", "Punta del Este's beaches", "Montevideo's historic Ciudad Vieja"], "blurb": "It is considered one of the most stable and progressive democracies in South America.", "vibe": "relaxed beach towns, colonial charm, and cattle ranches", "bestTime": "the shoulder seasons of spring (September–November) or autumn (March–May)"}, {"name": "Paraguay", "capital": "Asunción", "code": "py", "attractions": ["Jesuit ruins of Trinidad and Jesús", "Itaipu Dam", "Asunción's riverside old town"], "blurb": "It is one of only two landlocked countries in South America, along with Bolivia.", "vibe": "Jesuit ruins, riverside towns, and rural countryside", "bestTime": "the shoulder seasons of spring (September–November) or autumn (March–May)"}, {"name": "Venezuela", "capital": "Caracas", "code": "ve", "attractions": ["Angel Falls, the world's tallest waterfall", "Los Roques archipelago", "Mount Roraima's tabletop summit"], "blurb": "It is home to Angel Falls, the tallest uninterrupted waterfall in the world.", "vibe": "towering waterfalls, tropical islands, and dramatic tabletop mountains", "bestTime": "the dry season, generally May to September"}, {"name": "Guyana", "capital": "Georgetown", "code": "gy", "attractions": ["Kaieteur Falls", "Georgetown's colonial wooden architecture", "Rupununi savannah wildlife"], "blurb": "It is the only English-speaking country in South America, a legacy of British colonial rule.", "vibe": "untouched rainforest, thundering waterfalls, and savannah wildlife", "bestTime": "the dry season, generally May to September"}, {"name": "Suriname", "capital": "Paramaribo", "code": "sr", "attractions": ["Paramaribo's Dutch colonial old town", "Central Suriname Nature Reserve rainforest", "Galibi's sea turtle nesting beaches"], "blurb": "It is the smallest sovereign country in South America and a former Dutch colony.", "vibe": "Dutch colonial architecture, rainforest reserves, and river life", "bestTime": "the dry season, generally May to September"}, {"name": "Trinidad and Tobago", "capital": "Port of Spain", "code": "tt", "attractions": ["Pitch Lake, the world's largest natural asphalt lake", "Maracas Bay beach", "Tobago's coral reefs"], "blurb": "It is the birthplace of steelpan music and one of the Caribbean's liveliest Carnival celebrations.", "vibe": "Carnival culture, coral reefs, and lush rainforest", "bestTime": "the dry season, generally May to September"}, {"name": "French Guiana", "capital": "Cayenne", "code": "gf", "attractions": ["Devil's Island former penal colony", "Kourou Space Centre", "Amazon rainforest reserves"], "blurb": "As an overseas region of France, it uses the euro and is home to Europe's spaceport.", "vibe": "rainforest reserves, space history, and river culture", "bestTime": "the dry season, generally May to September"}, {"name": "Falkland Islands", "capital": "Stanley", "code": "fk", "attractions": ["King penguin colonies", "Stanley's British colonial character", "Rugged coastal wildlife cruises"], "blurb": "This remote British territory is home to far more penguins than people.", "vibe": "penguin colonies, rugged coastline, and remote wildlife", "bestTime": "November to March, the austral summer, when wildlife viewing is best"}, {"name": "Aruba", "capital": "Oranjestad", "code": "aw", "attractions": ["Eagle Beach's white sands", "Arikok National Park's desert landscape", "Oranjestad's Dutch-Caribbean waterfront"], "blurb": "Its position outside the Caribbean hurricane belt gives it a famously dry, sunny climate year-round.", "vibe": "white-sand beaches, desert landscapes, and Dutch-Caribbean culture", "bestTime": "December to April, during the dry season"}, {"name": "Curaçao", "capital": "Willemstad", "code": "cw", "attractions": ["Willemstad's colourful Handelskade waterfront", "Blue Curaçao liqueur distillery tours", "Snorkelling at Blue Room cave"], "blurb": "Its capital, Willemstad, is famous for brightly painted Dutch colonial buildings along the harbour.", "vibe": "colourful waterfronts, coral reefs, and Dutch-Caribbean charm", "bestTime": "December to April, during the dry season"}, {"name": "Bonaire", "capital": "Kralendijk", "code": "bq", "attractions": ["World-class shore diving reefs", "Washington Slagbaai National Park", "Flamingo-filled salt pans"], "blurb": "It is considered one of the top shore-diving destinations in the world.", "vibe": "coral reefs, salt flats, and flamingo colonies", "bestTime": "December to April, during the dry season"}, {"name": "Sint Maarten", "capital": "Philipsburg", "code": "sx", "attractions": ["Maho Beach's famous plane-spotting", "Philipsburg's boardwalk and shopping", "Fort Amsterdam ruins"], "blurb": "It is famously split between Dutch and French territory on a single small island.", "vibe": "duty-free shopping, plane-spotting beaches, and Caribbean nightlife", "bestTime": "December to April, during the dry season"}, {"name": "South Georgia", "capital": "King Edward Point", "code": "gs", "attractions": ["Vast king penguin rookeries", "Shackleton's grave at Grytviken", "Remote sub-Antarctic mountain scenery"], "blurb": "This remote sub-Antarctic island has no permanent residents, only researchers and vast wildlife colonies.", "vibe": "king penguin rookeries, glaciers, and polar wildlife", "bestTime": "November to March, the austral summer, when wildlife viewing is best"}], "Oceania": [{"name": "Australia", "capital": "Canberra", "code": "au", "attractions": ["Sydney Opera House & Harbour Bridge", "Great Barrier Reef diving", "Uluru in the Red Centre"], "blurb": "It is both the world's largest island and its smallest continent, home to unique wildlife found nowhere else.", "vibe": "iconic wildlife, red desert outback, and coastal reefs", "bestTime": "September to November or March to May, during the shoulder seasons"}, {"name": "New Zealand", "capital": "Wellington", "code": "nz", "attractions": ["Milford Sound fjord cruises", "Hobbiton movie set", "Rotorua's geothermal geysers"], "blurb": "Its dramatic landscapes served as the backdrop for the 'Lord of the Rings' film trilogy.", "vibe": "fjords, geothermal wonders, and adventure sports", "bestTime": "September to November or March to May, during the shoulder seasons"}, {"name": "Fiji", "capital": "Suva", "code": "fj", "attractions": ["Mamanuca and Yasawa Islands' beaches", "Coral Coast snorkelling", "Traditional kava ceremonies"], "blurb": "It is made up of over 300 islands, only about a third of which are inhabited.", "vibe": "coral reefs, turquoise lagoons, and warm hospitality", "bestTime": "the dry season, generally May to October"}, {"name": "Papua New Guinea", "capital": "Port Moresby", "code": "pg", "attractions": ["Kokoda Track trekking history", "Sepik River tribal culture", "Coral reefs of Milne Bay"], "blurb": "It is one of the most linguistically diverse countries in the world, with hundreds of languages spoken.", "vibe": "remote tribal culture, dense rainforest, and coral reefs", "bestTime": "the dry season, generally May to October"}, {"name": "Samoa", "capital": "Apia", "code": "ws", "attractions": ["To Sua Ocean Trench swimming hole", "Lalomanu Beach", "Robert Louis Stevenson Museum"], "blurb": "It sits near the international date line and was one of the last places to see each day's sunset.", "vibe": "waterfalls, traditional villages, and volcanic coastline", "bestTime": "the dry season, generally May to October"}, {"name": "Tonga", "capital": "Nuku'alofa", "code": "to", "attractions": ["Humpback whale swimming season", "Ha'amonga 'a Maui trilithon", "Vava'u island group sailing"], "blurb": "It is the only Pacific island nation never colonized by a foreign power.", "vibe": "coral reefs, whale encounters, and royal traditions", "bestTime": "the dry season, generally May to October"}, {"name": "Vanuatu", "capital": "Port Vila", "code": "vu", "attractions": ["Mount Yasur active volcano", "Blue Lagoon swimming holes on Efate", "Tanna Island cultural villages"], "blurb": "It is home to one of the world's most accessible active volcanoes, Mount Yasur.", "vibe": "active volcanoes, coral reefs, and tribal culture", "bestTime": "the dry season, generally May to October"}, {"name": "Solomon Islands", "capital": "Honiara", "code": "sb", "attractions": ["World War II wreck diving", "Marovo Lagoon's coral reefs", "Rennell Island's Lake Tegano"], "blurb": "It was the site of major Pacific battles during the Second World War, with wrecks still visible offshore.", "vibe": "WWII history, coral lagoons, and remote islands", "bestTime": "the dry season, generally May to October"}, {"name": "Kiribati", "capital": "Tarawa", "code": "ki", "attractions": ["Tarawa's WWII battle sites", "Remote outer-island atoll diving", "Phoenix Islands Protected Area"], "blurb": "It is one of the few countries whose territory spans all four hemispheres of the globe.", "vibe": "remote atolls, WWII history, and pristine reefs", "bestTime": "the dry season, generally May to October"}, {"name": "Micronesia", "capital": "Palikir", "code": "fm", "attractions": ["Nan Madol's ancient stone ruins on Pohnpei", "Chuuk Lagoon wreck diving", "Yap's traditional stone money villages"], "blurb": "It is scattered across a huge stretch of open ocean, spanning hundreds of islands.", "vibe": "ancient ruins, wreck diving, and traditional culture", "bestTime": "the dry season, generally May to October"}, {"name": "Marshall Islands", "capital": "Majuro", "code": "mh", "attractions": ["Bikini Atoll wreck diving", "Majuro's lagoon and reefs", "World War II historical sites"], "blurb": "Its Bikini Atoll was once a nuclear test site and is now a protected historical dive location.", "vibe": "wreck diving, remote atolls, and wartime history", "bestTime": "the dry season, generally May to October"}, {"name": "Palau", "capital": "Ngerulmud", "code": "pw", "attractions": ["Jellyfish Lake's stingless jellyfish", "Rock Islands Southern Lagoon", "World-class scuba diving"], "blurb": "Its waters were among the first in the world to be declared a shark sanctuary.", "vibe": "world-class diving, rock islands, and marine sanctuaries", "bestTime": "the dry season, generally May to October"}, {"name": "Nauru", "capital": "Yaren", "code": "nr", "attractions": ["Command Ridge lookout", "Anibare Bay's coastline", "Buada Lagoon"], "blurb": "It is one of the smallest countries in the world by area, roughly the size of a small town.", "vibe": "compact coastline, phosphate history, and quiet island life", "bestTime": "the dry season, generally May to October"}, {"name": "Tuvalu", "capital": "Funafuti", "code": "tv", "attractions": ["Funafuti Conservation Area's marine life", "Low-lying atoll snorkelling", "Traditional Tuvaluan dance performances"], "blurb": "It is one of the smallest and lowest-lying countries in the world, vulnerable to rising sea levels.", "vibe": "remote atolls, marine life, and traditional Pacific culture", "bestTime": "the dry season, generally May to October"}, {"name": "French Polynesia", "capital": "Papeetē", "code": "pf", "attractions": ["Bora Bora's overwater bungalows", "Moorea's lagoon and mountains", "Tahiti's black-sand beaches"], "blurb": "It includes Bora Bora and Tahiti, long considered among the world's most romantic destinations.", "vibe": "overwater bungalows, lagoons, and island culture", "bestTime": "the dry season, generally May to October"}, {"name": "New Caledonia", "capital": "Nouméa", "code": "nc", "attractions": ["Nouméa's lagoon, a UNESCO World Heritage site", "Isle of Pines' turquoise bays", "Amédée Lighthouse snorkelling"], "blurb": "Its lagoon is one of the largest in the world and a UNESCO World Heritage Site.", "vibe": "vast lagoons, coral reefs, and French-Pacific culture", "bestTime": "the dry season, generally May to October"}, {"name": "Guam", "capital": "Hagåtña", "code": "gu", "attractions": ["Tumon Bay beaches and diving", "Two Lovers Point cliff views", "War in the Pacific historical sites"], "blurb": "As a U.S. territory, it blends American infrastructure with Chamorro Pacific island culture.", "vibe": "tropical beaches, wartime history, and duty-free shopping", "bestTime": "the dry season, generally May to October"}, {"name": "American Samoa", "capital": "Pago Pago", "code": "as", "attractions": ["National Park of American Samoa rainforest", "Ofu Island's pristine reef", "Pago Pago's dramatic harbour"], "blurb": "It is home to the only U.S. National Park located south of the equator.", "vibe": "rainforest-covered peaks, coral reefs, and Samoan culture", "bestTime": "the dry season, generally May to October"}, {"name": "Cook Islands", "capital": "Avarua", "code": "ck", "attractions": ["Aitutaki's turquoise lagoon", "Rarotonga's coastal walking track", "Traditional island night markets"], "blurb": "It is self-governing in free association with New Zealand, giving residents dual citizenship.", "vibe": "turquoise lagoons, coral atolls, and Polynesian culture", "bestTime": "the dry season, generally May to October"}, {"name": "Niue", "capital": "Alofi", "code": "nu", "attractions": ["Swimming with spinner dolphins", "Limestone sea caves and chasms", "Coral-reef snorkelling around the coast"], "blurb": "It is one of the world's largest raised coral atolls, riddled with limestone caves and chasms.", "vibe": "limestone caves, coral cliffs, and clear-water diving", "bestTime": "the dry season, generally May to October"}]};
+
+const continentLabels = {
+    Africa: "Africa",
+    Asia: "Asia",
+    Europe: "Europe",
+    NorthAmerica: "North America",
+    SouthAmerica: "South America",
+    Oceania: "Oceania"
+};
+
+let currentContinent = null;
+
+function openContinentModal() {
+    document.getElementById('continentModal').style.display = 'flex';
+}
+function closeContinentModal() {
+    document.getElementById('continentModal').style.display = 'none';
+}
+
+function resetSearch() {
+    const input = document.getElementById('countrySearch');
+    const status = document.getElementById('searchResults');
+    const box = document.getElementById('countrySearchContainer');
+    if (input) input.value = '';
+    if (status) {
+        status.textContent = '';
+        status.classList.remove('has-results', 'no-results');
+    }
+    if (box) box.classList.remove('active');
+}
+
+function chooseContinent(key, keepSearch) {
+    currentContinent = key;
+    renderContinent(key);
+    closeContinentModal();
+    if (!keepSearch) resetSearch();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function renderContinent(key) {
+    const countries = countriesData[key];
+    const label = continentLabels[key];
+
+    const badge = document.getElementById('currentContinentLabel');
+    if (badge) badge.textContent = label;
+
+    const tbody = document.getElementById('countryTableBody');
+    if (tbody) {
+        tbody.innerHTML = '';
+        countries.forEach(c => {
+            const tr = document.createElement('tr');
+            tr.dataset.country = c.name;
+            tr.innerHTML = `<td>${c.name}</td><td>${c.capital}</td><td>${label}</td>`;
+            tbody.appendChild(tr);
+        });
+    }
+
+    const countryOl = document.getElementById('countryOl');
+    if (countryOl) {
+        countryOl.innerHTML = '';
+        countries.forEach(c => {
+            const li = document.createElement('li');
+            li.dataset.country = c.name;
+            li.textContent = c.name;
+            countryOl.appendChild(li);
+        });
+    }
+
+    const names = countries.map(c => c.name);
+    const topMarquee = document.getElementById('topMarquee');
+    if (topMarquee) topMarquee.textContent =
+        `🌍 Top ${label} destinations to travel ✈️ | Discover ${names.join(', ')} & more!`;
+    const countryMarquee = document.getElementById('countryMarquee');
+    if (countryMarquee) countryMarquee.textContent =
+        `🌟 Featured ${label} Countries 🌟 ${names.join(' | ')}`;
+    const cityMarquee = document.getElementById('cityMarquee');
+    if (cityMarquee) cityMarquee.textContent =
+        `🏙️ Featured ${label} Capitals: ${countries.map(c => c.capital).join(' | ')} 🏙️`;
+
+    const cityUl = document.getElementById('cityUl');
+    if (cityUl) {
+        cityUl.innerHTML = '';
+        countries.forEach(c => {
+            const li = document.createElement('li');
+            li.dataset.country = c.name;
+            li.textContent = c.capital;
+            cityUl.appendChild(li);
+        });
+    }
+
+    const tocList = document.getElementById('tocCountryList');
+    if (tocList) {
+        tocList.innerHTML = '';
+        countries.forEach(c => {
+            const id = slugify(c.name);
+            const li = document.createElement('li');
+            li.dataset.country = c.name;
+            li.innerHTML = `<a href="#${id}">${c.name}</a>`;
+            tocList.appendChild(li);
+        });
+    }
+
+    const content = document.getElementById('countrySections');
+    if (content) {
+        content.innerHTML = '';
+        countries.forEach(c => {
+            const id = slugify(c.name);
+            const section = document.createElement('section');
+            section.id = id;
+            section.dataset.country = c.name;
+            const attr1 = c.attractions[0].split(' – ')[0];
+            const attr2 = (c.attractions[1] || c.attractions[0]).split(' – ')[0];
+            const paragraph = [
+                `${c.name} is a destination in ${label}, with ${c.capital} serving as its capital city.`,
+                `${c.blurb}`,
+                `The country is best known for its ${c.vibe}, which give it a distinct travel appeal.`,
+                `Among its top highlights are ${attr1} and ${attr2}, both popular with visitors exploring the region.`,
+                `The best time to visit is generally ${c.bestTime}.`,
+                `Whether you're drawn to nature, history, or local culture, ${c.name} offers a memorable experience for every kind of traveler.`
+            ].join(' ');
+            section.innerHTML = `
+                <h2 style="color:blue; text-align:center;">${c.name}</h2>
+                <img src="https://flagcdn.com/w320/${c.code}.png" alt="${c.name} Flag" class="flag-img">
+                <p>${paragraph}</p>
+                <p>Top places to visit:</p>
+                <ol>${c.attractions.map(a => `<li>${a}</li>`).join('')}</ol>
+            `;
+            content.appendChild(section);
+        });
+    }
+}
+
+function slugify(name) {
+    return name.replace(/[^a-zA-Z0-9]/g, '');
+}
+
+function updateClock() {
+    const now = new Date();
+    const hours = now.getHours();
+    const minutes = now.getMinutes();
+    const seconds = now.getSeconds();
+
+    const hourDeg = (hours % 12) * 30 + minutes * 0.5;
+    const minuteDeg = minutes * 6 + seconds * 0.1;
+    const secondDeg = seconds * 6;
+
+    const hourHand = document.querySelector('.hour-hand');
+    const minuteHand = document.querySelector('.minute-hand');
+    const secondHand = document.querySelector('.second-hand');
+    if (hourHand) hourHand.style.transform = `rotate(${hourDeg}deg)`;
+    if (minuteHand) minuteHand.style.transform = `rotate(${minuteDeg}deg)`;
+    if (secondHand) secondHand.style.transform = `rotate(${secondDeg}deg)`;
+
+    const digital = document.getElementById('digitalClock');
+    const dateDisplay = document.getElementById('dateDisplay');
+    if (digital) digital.textContent = now.toLocaleTimeString();
+    if (dateDisplay) dateDisplay.textContent = now.toLocaleDateString(undefined, {
+        weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'
+    });
+}
+setInterval(updateClock, 1000);
+updateClock();
+
+let galleryIndex = 0;
+let galleryTimer = null;
+const GALLERY_INTERVAL_MS = 3000;
+
+function showGalleryImage(idx) {
+    const items = document.querySelectorAll('.image-container');
+    if (!items.length) return;
+    items.forEach(el => el.classList.remove('active'));
+    galleryIndex = (idx + items.length) % items.length;
+    items[galleryIndex].classList.add('active');
+}
+
+function startGalleryAutoplay() {
+    stopGalleryAutoplay();
+    galleryTimer = setInterval(() => {
+        showGalleryImage(galleryIndex + 1);
+    }, GALLERY_INTERVAL_MS);
+}
+
+function stopGalleryAutoplay() {
+    if (galleryTimer) {
+        clearInterval(galleryTimer);
+        galleryTimer = null;
+    }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    const prevBtn = document.querySelector('.previous-button');
+    const nextBtn = document.querySelector('.next-button');
+    if (prevBtn) prevBtn.addEventListener('click', () => {
+        showGalleryImage(galleryIndex - 1);
+        startGalleryAutoplay();
+    });
+    if (nextBtn) nextBtn.addEventListener('click', () => {
+        showGalleryImage(galleryIndex + 1);
+        startGalleryAutoplay();
+    });
+
+    const gallery = document.querySelector('.image-gallery');
+    if (gallery) {
+        gallery.addEventListener('mouseenter', stopGalleryAutoplay);
+        gallery.addEventListener('mouseleave', startGalleryAutoplay);
+    }
+
+    startGalleryAutoplay();
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    const themeToggle = document.getElementById('themeToggle');
+    if (themeToggle) {
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            themeToggle.textContent = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
+        });
+    }
+
+    const showTocBtn = document.getElementById('show-toc-btn');
+    const toc = document.getElementById('tableOfContents');
+    const overlay = document.getElementById('tocOverlay');
+    if (showTocBtn && toc && overlay) {
+        const openToc = () => {
+            toc.classList.add('active');
+            overlay.classList.add('active');
+        };
+        const closeToc = () => {
+            toc.classList.remove('active');
+            overlay.classList.remove('active');
+        };
+        showTocBtn.addEventListener('click', () => {
+            if (toc.classList.contains('active')) {
+                closeToc();
+            } else {
+                openToc();
+            }
+        });
+        overlay.addEventListener('click', closeToc);
+        toc.addEventListener('click', (e) => {
+            if (e.target.closest('a')) closeToc();
+        });
+    }
+
+    const showTableBtn = document.getElementById('show-table-btn');
+    const tableContainer = document.getElementById('table-container');
+    if (showTableBtn && tableContainer) {
+        showTableBtn.addEventListener('click', () => {
+            const isHidden = tableContainer.style.display === 'none' || !tableContainer.style.display;
+            tableContainer.style.display = isHidden ? 'block' : 'none';
+            showTableBtn.textContent = isHidden ? 'Hide Table' : 'Show Table';
+        });
+    }
+
+    const scrollDownBtn = document.getElementById('scroll-down-btn');
+    const backToTopBtn = document.getElementById('back-to-top-btn');
+    if (scrollDownBtn) {
+        scrollDownBtn.addEventListener('click', () => {
+            window.scrollTo({ top: document.documentElement.scrollHeight, behavior: 'smooth' });
+        });
+    }
+    if (backToTopBtn) {
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+        window.addEventListener('scroll', () => {
+            backToTopBtn.style.display = window.scrollY > 400 ? 'block' : 'none';
+        });
+    }
+
+    const changeContinentBtn = document.getElementById('changeContinentBtn');
+    if (changeContinentBtn) {
+        changeContinentBtn.addEventListener('click', openContinentModal);
+    }
+
+    document.querySelectorAll('.continent-btn').forEach(btn => {
+        btn.addEventListener('click', () => chooseContinent(btn.dataset.continent));
+    });
+
+    openContinentModal();
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+    const searchToggle  = document.getElementById("searchToggle");
+    const searchInput   = document.getElementById("countrySearch");
+    const searchResults = document.getElementById("searchResults");
+    const container     = document.getElementById("countrySearchContainer");
+
+    if (!searchToggle || !searchInput || !searchResults || !container) return;
+
+    container.classList.remove("active");
+
+    function getAllPlaces() {
+        const list = [];
+        for (const continent in countriesData) {
+            countriesData[continent].forEach(c => {
+                list.push({ name: c.name, capital: c.capital, continent });
+            });
+        }
+        return list;
+    }
+    const ALL_PLACES = getAllPlaces();
+
+    function placeMatches(p, q) {
+        return p.name.toLowerCase().includes(q) || p.capital.toLowerCase().includes(q);
+    }
+
+    function applyFilter(allowedNames) {
+        document.querySelectorAll("[data-country]").forEach(el => {
+            el.classList.toggle("search-hidden", !allowedNames.has(el.dataset.country));
+        });
+    }
+
+    function clearFilter() {
+        document.querySelectorAll("[data-country]").forEach(el => {
+            el.classList.remove("search-hidden");
+        });
+    }
+
+    function showStatus(message, isError) {
+        searchResults.textContent = message;
+        searchResults.classList.add("has-results");
+        searchResults.classList.toggle("no-results", !!isError);
+    }
+
+    function hideStatus() {
+        searchResults.textContent = "";
+        searchResults.classList.remove("has-results", "no-results");
+    }
+
+    function runSearch(rawQuery) {
+        const q = rawQuery.trim().toLowerCase();
+
+        if (!q) {
+            clearFilter();
+            hideStatus();
+            return;
+        }
+
+        const inCurrent = currentContinent
+            ? countriesData[currentContinent].filter(c => placeMatches(c, q))
+            : [];
+
+        if (inCurrent.length) {
+            applyFilter(new Set(inCurrent.map(c => c.name)));
+            showStatus(`${inCurrent.length} match${inCurrent.length > 1 ? "es" : ""} for "${rawQuery.trim()}"`);
+            return;
+        }
+
+        const globalMatches = ALL_PLACES.filter(p => placeMatches(p, q));
+
+        if (!globalMatches.length) {
+            applyFilter(new Set());
+            showStatus(`No countries found for "${rawQuery.trim()}"`, true);
+            return;
+        }
+
+        const targetContinent = globalMatches[0].continent;
+        chooseContinent(targetContinent, true);
+        const namesInTarget = countriesData[targetContinent]
+            .filter(c => placeMatches(c, q))
+            .map(c => c.name);
+        applyFilter(new Set(namesInTarget));
+        showStatus(`${namesInTarget.length} match${namesInTarget.length > 1 ? "es" : ""} for "${rawQuery.trim()}" in ${continentLabels[targetContinent]}`);
+
+        setTimeout(() => {
+            const target = document.getElementById(slugify(globalMatches[0].name));
+            if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
+        }, 150);
+    }
+
+    searchToggle.addEventListener("click", (e) => {
+        e.stopPropagation();
+        const isOpen = container.classList.toggle("active");
+
+        if (isOpen) {
+            searchInput.focus();
+        } else {
+            searchInput.value = "";
+            clearFilter();
+            hideStatus();
+        }
+    });
+
+    searchInput.addEventListener("input", () => {
+        runSearch(searchInput.value);
+    });
+
+    searchInput.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") {
+            searchInput.value = "";
+            clearFilter();
+            hideStatus();
+            container.classList.remove("active");
+        }
+    });
+
+    document.addEventListener("click", (e) => {
+        if (!container.contains(e.target) && !searchResults.contains(e.target)) {
+            if (!searchInput.value.trim()) {
+                container.classList.remove("active");
+            }
+        }
+    });
+});

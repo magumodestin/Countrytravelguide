@@ -6,7 +6,7 @@
 
 An interactive, single-page travel guide that lets you explore the top 20 destinations across all six continents — complete with live clocks, a dynamic image gallery, searchable country data, and a sleek dark mode.
 
-✨ Features
+ Features
 
 🌎 Continent Selector – Pick from Africa, Asia, Europe, North America, South America, or Oceania to load curated destinations.
 🕐 Live Analog + Digital Clock – Real-time clock with date display.
@@ -17,8 +17,8 @@ An interactive, single-page travel guide that lets you explore the top 20 destin
 📱 Responsive Navigation – Sticky header + slide-out table of contents.
 ⬆️⬇️ Scroll Controls – Quick scroll-to-top and scroll-down buttons.
 📧 Contact Section – Email and phone links for inquiries.
-🛠️ Built With
 
+ Built With:
 HTML5 – Semantic structure
 CSS3 – Flexbox, Grid, animations, custom properties JavaScript
 WebM video background – Lightweight looping video hero)

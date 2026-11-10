@@ -1124,3 +1124,23 @@ marquee {
         height: 24px;
     }
 }
+/* About section */
+.about-section {
+    scroll-margin-top: 80px;
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 24px;
+    text-align: center;
+    background: var(--section-bg);
+    color: var(--text-color);
+    border-radius: 12px;
+}
+
+.about-heading {
+    color: var(--primary-color);
+    margin-bottom: 12px;
+}
+
+.about-text {
+    line-height: 1.6;
+}

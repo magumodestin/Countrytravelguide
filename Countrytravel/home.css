@@ -1144,3 +1144,34 @@ marquee {
 .about-text {
     line-height: 1.6;
 }
+
+
+/* Antarctica option and section */
+.continent-btn-wide {
+    grid-column: 1 / -1;
+}
+
+.antarctica-section .flag-img {
+    margin: 15px auto;
+}
+
+.antarctica-more {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.antarctica-more a {
+    display: inline-block;
+    padding: 12px 22px;
+    border-radius: 8px;
+    background-color: #0000ff;
+    color: #ffffff;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.2s;
+}
+
+.antarctica-more a:hover {
+    background-color: #00aa00;
+    transform: translateY(-2px);
+}
